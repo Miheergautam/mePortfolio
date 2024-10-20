@@ -6,12 +6,12 @@ const photographyProjects = [
   {
     title: "Photo 1",
     description: "Football",
-    image: "src/assets/photo1.jpeg", 
+    image: "public/assets/photo1.jpeg", 
   },
   {
     title: "Photo 2",
     description: "Sky",
-    image: "src/assets/photo2.jpeg", 
+    image: "public/assets/photo2.jpeg", 
   },
 ];
 

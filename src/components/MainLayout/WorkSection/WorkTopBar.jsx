@@ -5,7 +5,7 @@ import VideoEditing from "./VideoEditing";
 import Photography from "./Photography";
 
 export default function WorkTopBar() {
-  const [activeTab, setActiveTab] = useState("");
+  const [activeTab, setActiveTab] = useState("Web Development");
 
   return (
     <div className="w-full flex flex-col text-white justify-center items-center gap-6">
@@ -14,25 +14,33 @@ export default function WorkTopBar() {
         {/* Mobile Design: Stack buttons */}
         <div className="flex flex-col md:flex-row md:gap-4 gap-3 w-full">
           <button
-            className={`bg-neutral-700 py-2 px-4 rounded-2xl transition duration-300 ${activeTab === "Web Development" ? "bg-cust-red" : ""}`}
+            className={`py-2 px-4 rounded-2xl transition duration-300 ${
+              activeTab === "Web Development" ? "bg-cust-red" : "bg-neutral-700 hover:bg-neutral-600"
+            }`}
             onClick={() => setActiveTab("Web Development")}
           >
             {"<"} Web Development {"/>"}
           </button>
           <button
-            className={`bg-neutral-700 py-2 px-4 rounded-2xl transition duration-300 ${activeTab === "Machine Learning" ? "bg-cust-red" : ""}`}
+            className={`py-2 px-4 rounded-2xl transition duration-300 ${
+              activeTab === "Machine Learning" ? "bg-cust-red" : "bg-neutral-700 hover:bg-neutral-600"
+            }`}
             onClick={() => setActiveTab("Machine Learning")}
           >
             Machine Learning
           </button>
           <button
-            className={`bg-neutral-700 py-2 px-4 rounded-2xl transition duration-300 ${activeTab === "Video Editing" ? "bg-cust-red" : ""}`}
+            className={`py-2 px-4 rounded-2xl transition duration-300 ${
+              activeTab === "Video Editing" ? "bg-cust-red" : "bg-neutral-700 hover:bg-neutral-600"
+            }`}
             onClick={() => setActiveTab("Video Editing")}
           >
             Video Editing
           </button>
           <button
-            className={`bg-neutral-700 py-2 px-4 rounded-2xl transition duration-300 ${activeTab === "Photography" ? "bg-cust-red" : ""}`}
+            className={`py-2 px-4 rounded-2xl transition duration-300 ${
+              activeTab === "Photography" ? "bg-cust-red" : "bg-neutral-700 hover:bg-neutral-600"
+            }`}
             onClick={() => setActiveTab("Photography")}
           >
             Photography

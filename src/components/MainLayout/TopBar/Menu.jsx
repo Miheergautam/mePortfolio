@@ -1,4 +1,4 @@
-import { Icons } from "../../../assets/Icons";
+import { Icons } from "../../../../public/assets/Icons";
 
 export default function Menu({ menuOpen, setMenuOpen }) {
   return (

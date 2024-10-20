@@ -6,12 +6,12 @@ const videoProjects = [
   {
     title: "Travel",
     description: "A video of my travels",
-    image: "src/assets/video1.jpeg" 
+    image: "public/assets/video1.jpeg" 
   },
   {
     title: "Editing",
     description: "Video editing",
-    image: "src/assets/video2.jpeg", 
+    image: "public/assets/video2.jpeg", 
   },
 ];
 

@@ -13,7 +13,7 @@ export default function AboutMe() {
         {/* Image displayed only on larger screens */}
         <div className="hidden md:block rounded-full overflow-hidden ml-4">
           <img
-            src="src/assets/IMG_5579.jpeg"
+            src="public/assets/IMG_5579.jpeg"
             alt="About Me"
             className="object-cover w-full h-full"
           />
