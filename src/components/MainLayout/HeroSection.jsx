@@ -1,6 +1,6 @@
 export default function HeroSection() {
   return (
-    <section className="flex justify-center items-center text-cust-light p-4">
+    <section id="home" className="flex justify-center items-center text-cust-light p-4">
       <div className="flex flex-col justify-center items-center w-full max-w-7xl">
         <span className="border-2 border-neutral-400 px-4 py-1 rounded-2xl text-cust-red text-lg md:text-xl font-semibold">
           <span className="text-neutral-400">.</span> Hola{" "}
