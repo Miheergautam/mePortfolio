@@ -11,7 +11,7 @@ export default function MenuBar({ menuOpen }) {
       {menuOpen && (
         <div className="absolute flex flex-row justify-between text-cust-light border border-neutral-500 w-full max-w-7xl bg-cust-dark rounded-xl mx-2 py-4 px-4 md:py-6 md:px-6">
           <img
-            src="public/assets/Profile.jpg"
+            src="assets/Profile.jpg"
             alt="Profile"
             className="w-32 md:w-60 object-cover rounded-lg"
           />
