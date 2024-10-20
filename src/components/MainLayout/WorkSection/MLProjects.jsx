@@ -6,12 +6,12 @@ const mlProjects = [
   {
     title: "PACMAN",
     description: "Automated",
-    image: "public/assets/ML1.jpg",
+    image: "assets/ML1.jpg",
   },
   {
     title: "CHAT-BOT",
     description: "User Friendly AI-Bot",
-    image: "public/assets/ML2.webp",
+    image: "assets/ML2.webp",
   },
 ];
 

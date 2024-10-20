@@ -6,17 +6,17 @@ const projects = [
   {
     title: "WORKWAVE",
     description: "HR Management System",
-    image: "public/assets/Web1.jpg",
+    image: "assets/Web1.jpg",
   },
   {
     title: "BUNKERS",
     description: "Hostel Accommodation Application",
-    image: "public/assets/Web2.jpg",
+    image: "assets/Web2.jpg",
   },
   {
     title: "24/7 FoodBell",
     description: "Food Delivery Application",
-    image: "public/assets/Web3.jpg",
+    image: "assets/Web3.jpg",
   },
 ];
 

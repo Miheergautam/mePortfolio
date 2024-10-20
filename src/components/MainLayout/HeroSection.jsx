@@ -53,21 +53,21 @@ export default function HeroSection() {
               <ul className="flex gap-4 text-neutral-400">
                 <li>
                   <img
-                    src="public/assets/linkedin.png"
+                    src="assets/linkedin.png"
                     alt="Linkedin icon"
                     className="w-6 h-6 md:w-7 md:h-7 rounded-full"
                   />
                 </li>
                 <li>
                   <img
-                    src="public/assets/X.avif"
+                    src="assets/X.avif"
                     alt="X icon"
                     className="w-6 h-6 md:w-7 md:h-7 rounded-full"
                   />
                 </li>
                 <li>
                   <img
-                    src="public/assets/instagram.png"
+                    src="assets/instagram.png"
                     alt="Instagram icon"
                     className="w-6 h-6 md:w-7 md:h-7 rounded-full"
                   />
@@ -81,7 +81,7 @@ export default function HeroSection() {
             <div className="w-32 h-32 md:w-48 md:h-48 border-4 border-neutral-400 rounded-full overflow-hidden">
               <img
                 className="object-cover w-full h-full"
-                src="public/assets/IMG_5342.jpeg"
+                src="assets/IMG_5342.jpeg"
                 alt="Profile photo"
               />
             </div>
