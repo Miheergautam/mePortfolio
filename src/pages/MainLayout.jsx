@@ -1,6 +1,6 @@
 import React from "react";
 
-import TopBar from "../components/MainLayout/TopBar";
+
 import HeroSection from "../components/MainLayout/HeroSection";
 import Services from "../components/MainLayout/Services/Services";
 import WorkSection from "../components/MainLayout/WorkSection/WorkSection";
@@ -10,7 +10,6 @@ import Footer from "../components/MainLayout/Footer/Footer";
 export default function MainLayout() {
   return (
     <div className="flex flex-col font-clash-display">
-      <TopBar />
       <div className="min-h-screen py-8 px-4">
         <HeroSection />
       </div>

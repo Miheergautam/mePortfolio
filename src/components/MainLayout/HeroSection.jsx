@@ -1,6 +1,18 @@
+import React from "react";
+
 export default function HeroSection() {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section id="home" className="flex justify-center items-center text-cust-light p-4">
+    <section
+      id="home"
+      className="flex justify-center items-center text-cust-light p-4"
+    >
       <div className="flex flex-col justify-center items-center w-full max-w-7xl">
         <span className="border-2 border-neutral-400 px-4 py-1 rounded-2xl text-cust-red text-lg md:text-xl font-semibold">
           <span className="text-neutral-400">.</span> Hola{" "}
@@ -32,7 +44,12 @@ export default function HeroSection() {
                 technical challenges.
                 <div className="flex flex-col">
                   <span className="text-white">Wanna know more about me? </span>
-                  <span className="text-cust-red cursor-pointer">Explore More</span>
+                  <span
+                    className="text-cust-red cursor-pointer"
+                    onClick={() => scrollToSection("about")}
+                  >
+                    Explore More
+                  </span>
                 </div>
               </p>
             </section>
@@ -52,25 +69,30 @@ export default function HeroSection() {
               <h2 className="text-xl md:text-2xl font-semibold">Let's Talk!</h2>
               <ul className="flex gap-4 text-neutral-400">
                 <li>
-                  <img
-                    src="assets/linkedin.png"
-                    alt="Linkedin icon"
-                    className="w-6 h-6 md:w-7 md:h-7 rounded-full"
-                  />
+                  <a
+                    href="https://www.linkedin.com/in/miheer-gautam/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="assets/linkedin.png"
+                      alt="Linkedin icon"
+                      className="w-6 h-6 md:w-7 md:h-7 rounded-full"
+                    />
+                  </a>
                 </li>
                 <li>
-                  <img
-                    src="assets/X.avif"
-                    alt="X icon"
-                    className="w-6 h-6 md:w-7 md:h-7 rounded-full"
-                  />
-                </li>
-                <li>
-                  <img
-                    src="assets/instagram.png"
-                    alt="Instagram icon"
-                    className="w-6 h-6 md:w-7 md:h-7 rounded-full"
-                  />
+                  <a
+                    href="https://discord.com/users/miheer_4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="assets/discord3.png"
+                      alt="Discord icon"
+                      className="w-6 h-6 md:w-7 md:h-7 rounded-full"
+                    />
+                  </a>
                 </li>
               </ul>
             </section>
@@ -87,7 +109,9 @@ export default function HeroSection() {
             </div>
             <div className="flex gap-1 text-sm md:text-base">
               <span>{"<"}</span>
-              <span className="font-semibold"><span className="text-cust-red">@</span>updating_me</span>
+              <span className="font-semibold">
+                <span className="text-cust-red">@</span>updating_me
+              </span>
               <span>{"/>"}</span>
             </div>
           </div>
@@ -95,21 +119,30 @@ export default function HeroSection() {
           {/* Projects Done Section (Hidden on smaller screens) */}
           <div className="hidden md:flex flex-col justify-center text-end gap-6 mr-0 md:mr-6">
             <section className="space-y-2">
-              <h2 className="text-xl md:text-2xl font-semibold">PROJECTS DONE</h2>
+              <h2 className="text-xl md:text-2xl font-semibold">
+                PROJECTS DONE
+              </h2>
               <div className="text-4xl md:text-6xl text-neutral-400">7+</div>
             </section>
 
             <section className="space-y-2">
-              <h2 className="text-xl md:text-2xl font-semibold">YEARS OF EXPERIENCE</h2>
+              <h2 className="text-xl md:text-2xl font-semibold">
+                YEARS OF EXPERIENCE
+              </h2>
               <div className="text-4xl md:text-6xl text-neutral-400">2+</div>
             </section>
           </div>
         </div>
 
         {/* Download CV Button */}
-        <div className="border border-neutral-300 py-2 px-8 rounded-2xl text-lg md:text-xl font-semibold mt-4 cursor-pointer bg-neutral-900 hover:bg-cust-red transition duration-200">
+        <a
+          href="assets/Resume_Miheer_Gautam.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="border border-neutral-300 py-2 px-8 rounded-2xl text-lg md:text-xl font-semibold mt-4 cursor-pointer bg-neutral-900 hover:bg-cust-red transition duration-200"
+        >
           <span>.</span> Download CV
-        </div>
+        </a>
       </div>
     </section>
   );

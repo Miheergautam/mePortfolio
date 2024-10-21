@@ -1,9 +1,20 @@
-export default function MenuBar({ menuOpen }) {
+import React from "react";
+import { useNavigate } from "react-router-dom";
+
+export default function MenuBar({ menuOpen, setMenuOpen }) {
+  const navigate = useNavigate();
+
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
+      setMenuOpen(false);
     }
+  };
+
+  const handleNavigate = (route) => {
+    navigate(route);
+    setMenuOpen(false);
   };
 
   return (
@@ -17,27 +28,33 @@ export default function MenuBar({ menuOpen }) {
           />
           <div className="flex flex-col items-start md:items-end px-4 md:px-8">
             <h1
-              onClick={() => scrollToSection("home")}
-              className="font-bold text-3xl md:text-5xl text-cust-red mb-2 cursor-pointer"
+              onClick={() => handleNavigate("/")}
+              className="font-bold text-3xl md:text-5xl text-cust-red mb-2 cursor-pointer hover:bg-cust-red hover:text-black px-2 py-1 rounded"
             >
               HOME
             </h1>
             <h1
               onClick={() => scrollToSection("about")}
-              className="font-bold text-3xl md:text-5xl text-cust-red mb-2 cursor-pointer"
+              className="font-bold text-3xl md:text-5xl text-cust-red mb-2 cursor-pointer hover:bg-cust-red hover:text-black px-2 py-1 rounded"
             >
               ABOUT
             </h1>
             <h1
               onClick={() => scrollToSection("projects")}
-              className="font-bold text-3xl md:text-5xl text-cust-red mb-2 cursor-pointer"
+              className="font-bold text-3xl md:text-5xl text-cust-red mb-2 cursor-pointer hover:bg-cust-red hover:text-black px-2 py-1 rounded"
             >
               PROJECTS
             </h1>
-            <h1 className="font-bold text-3xl md:text-5xl text-cust-red mb-2 cursor-pointer">
+            <h1
+              onClick={() => handleNavigate("/blogs")}
+              className="font-bold text-3xl md:text-5xl text-cust-red mb-2 cursor-pointer hover:bg-cust-red hover:text-black px-2 py-1 rounded"
+            >
               BLOGS
             </h1>
-            <h1 className="font-bold text-3xl md:text-5xl text-cust-red mb-2 cursor-pointer">
+            <h1
+              onClick={() => handleNavigate("/mytech")}
+              className="font-bold text-3xl md:text-5xl text-cust-red mb-2 cursor-pointer hover:bg-cust-red hover:text-black px-2 py-1 rounded"
+            >
               MY TECH
             </h1>
           </div>

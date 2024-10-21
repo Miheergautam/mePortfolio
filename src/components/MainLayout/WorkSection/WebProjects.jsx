@@ -53,7 +53,13 @@ export default function WebProjects() {
                   {"("} {project.description} {")"}
                 </p>
               </div>
-              <VscGithubInverted className="size-12" />
+              <a
+                href="https://github.com/Miheergautam"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <VscGithubInverted className="size-12 cursor-pointer" />
+              </a>
             </div>
           </div>
         ))}
@@ -76,7 +82,13 @@ export default function WebProjects() {
                 {"("} {projects[currentIndex].description} {")"}
               </p>
             </div>
-            <VscGithubInverted className="size-12" />
+            <a
+              href="https://github.com/Miheergautam"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <VscGithubInverted className="size-12 cursor-pointer" />
+            </a>
           </div>
         </div>
 

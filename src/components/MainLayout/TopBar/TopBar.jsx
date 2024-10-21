@@ -1,6 +1,6 @@
-import useCurrentTime from "../../hooks/useCurrentTime";
-import Menu from "./TopBar/Menu";
-import MenuBar from "./TopBar/MenuBar";
+import useCurrentTime from "../../../hooks/useCurrentTime";
+import Menu from "./Menu";
+import MenuBar from "./MenuBar";
 
 import { useState } from "react";
 
@@ -18,7 +18,7 @@ export default function TopBar() {
           </span>
         </div>
       </div>
-      <MenuBar menuOpen={menuOpen} />
+      <MenuBar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
     </div>
   );
 }
