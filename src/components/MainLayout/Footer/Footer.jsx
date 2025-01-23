@@ -15,7 +15,7 @@ export default function Footer() {
 
         {/* Right Section: Blog Link */}
         <div className="flex items-center gap-2 text-center">
-          <a href="https://yourbloglink.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-lg md:text-base flex items-center">
+          <a href="https://miheergautam.github.io/zenith-Portfolio/blogs" target="_blank" rel="noopener noreferrer" className="font-semibold text-lg md:text-base flex items-center">
             <span className="text-cust-red text-xl">.</span> meBlogs
             <FaBlogger className="text-3xl md:text-2xl text-cust-red ml-2" aria-label="Blog Icon" />
           </a>
