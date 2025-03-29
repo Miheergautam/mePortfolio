@@ -66,8 +66,6 @@ export default function HeroSection() {
               </ul>
             </section>
             {/* Connect Here */}
-            import {(FaLinkedin, FaDiscord, FaInstagram)} from "react-icons/fa";
-            {/* Connect Here */}
             <section className="space-y-2 md:block hidden">
               <h2 className="text-xl md:text-2xl font-semibold">Let's Talk!</h2>
               <ul className="flex gap-4 text-neutral-400">

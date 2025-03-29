@@ -10,7 +10,7 @@ import Blogs from "./pages/Blogs/Blogs";
 function App() {
   return (
     <div className=" bg-neutral-900">
-      <Router basename="zenith-Portfolio/">
+      <Router basename="/">
         <TopBar />
         <Routes>
           <Route path="/" element={<MainLayout />} />
