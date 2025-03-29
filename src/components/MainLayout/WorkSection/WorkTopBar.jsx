@@ -5,7 +5,7 @@ import VideoEditing from "./VideoEditing";
 import Photography from "./Photography";
 
 export default function WorkTopBar() {
-  const [activeTab, setActiveTab] = useState("Web Development");
+  const [activeTab, setActiveTab] = useState("Full Stack Development");
 
   return (
     <div className="w-full flex flex-col text-white justify-center items-center gap-6">
@@ -15,23 +15,29 @@ export default function WorkTopBar() {
         <div className="flex flex-col md:flex-row md:gap-4 gap-3 w-full">
           <button
             className={`py-2 px-4 rounded-2xl transition duration-300 ${
-              activeTab === "Web Development" ? "bg-cust-red" : "bg-neutral-700 hover:bg-neutral-600"
+              activeTab === "Full Stack Development"
+                ? "bg-cust-red"
+                : "bg-neutral-700 hover:bg-neutral-600"
             }`}
-            onClick={() => setActiveTab("Web Development")}
+            onClick={() => setActiveTab("Full Stack Development")}
           >
-            {"<"} Web Development {"/>"}
+            {"<"} Full Stack Development {"/>"}
           </button>
           <button
             className={`py-2 px-4 rounded-2xl transition duration-300 ${
-              activeTab === "Machine Learning" ? "bg-cust-red" : "bg-neutral-700 hover:bg-neutral-600"
+              activeTab === "AI/Machine Learning"
+                ? "bg-cust-red"
+                : "bg-neutral-700 hover:bg-neutral-600"
             }`}
-            onClick={() => setActiveTab("Machine Learning")}
+            onClick={() => setActiveTab("AI/Machine Learning")}
           >
-            Machine Learning
+            AI/Machine Learning
           </button>
           <button
             className={`py-2 px-4 rounded-2xl transition duration-300 ${
-              activeTab === "Video Editing" ? "bg-cust-red" : "bg-neutral-700 hover:bg-neutral-600"
+              activeTab === "Video Editing"
+                ? "bg-cust-red"
+                : "bg-neutral-700 hover:bg-neutral-600"
             }`}
             onClick={() => setActiveTab("Video Editing")}
           >
@@ -39,7 +45,9 @@ export default function WorkTopBar() {
           </button>
           <button
             className={`py-2 px-4 rounded-2xl transition duration-300 ${
-              activeTab === "Photography" ? "bg-cust-red" : "bg-neutral-700 hover:bg-neutral-600"
+              activeTab === "Photography"
+                ? "bg-cust-red"
+                : "bg-neutral-700 hover:bg-neutral-600"
             }`}
             onClick={() => setActiveTab("Photography")}
           >
@@ -50,9 +58,9 @@ export default function WorkTopBar() {
 
       {/* Content Section */}
       <div className="h-full max-w-7xl w-full">
-        {activeTab === "Web Development" ? (
+        {activeTab === "Full Stack Development" ? (
           <WebProjects />
-        ) : activeTab === "Machine Learning" ? (
+        ) : activeTab === "AI/Machine Learning" ? (
           <MLProjects />
         ) : activeTab === "Video Editing" ? (
           <VideoEditing />

@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function MenuBar({ menuOpen, setMenuOpen }) {
   const navigate = useNavigate();
@@ -45,12 +46,11 @@ export default function MenuBar({ menuOpen, setMenuOpen }) {
             >
               PROJECTS
             </h1>
-            <h1
-              onClick={() => handleNavigate("/blogs")}
+            <Link to={"https://meblogs-4.vercel.app/"}
               className="font-bold text-3xl md:text-5xl text-cust-red mb-2 cursor-pointer hover:bg-cust-red hover:text-black px-2 py-1 rounded"
             >
               BLOGS
-            </h1>
+            </Link>
             <h1
               onClick={() => handleNavigate("/mytech")}
               className="font-bold text-3xl md:text-5xl text-cust-red mb-2 cursor-pointer hover:bg-cust-red hover:text-black px-2 py-1 rounded"

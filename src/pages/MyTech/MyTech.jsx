@@ -18,7 +18,7 @@ export default function MyTech() {
     ];
   
     return (
-      <div className="text-white p-4">
+      <div className="text-white p-4 min-h-screen">
         {/* Layout Wrapper with max-w-7xl */}
         <div className="max-w-7xl mx-auto">
           {/* Enhanced Heading */}

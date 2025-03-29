@@ -1,4 +1,5 @@
 import React from "react";
+import { FaLinkedin, FaDiscord, FaInstagram } from "react-icons/fa";
 
 export default function HeroSection() {
   const scrollToSection = (sectionId) => {
@@ -27,7 +28,7 @@ export default function HeroSection() {
             </span>
           </h1>
           <h2 className="text-2xl md:text-4xl text-center font-semibold">
-            Full-Stack Web Developer
+            ~ Full-Stack Developer
           </h2>
         </div>
 
@@ -39,8 +40,9 @@ export default function HeroSection() {
             <section className="space-y-2 md:block hidden">
               <h2 className="text-xl md:text-2xl font-semibold">Biography</h2>
               <p className="text-neutral-400 flex flex-col gap-2 text-sm md:text-base">
-                I'm an aspiring software developer specializing in the MERN
-                stack. I enjoy building user-friendly applications and solving
+                Passionate software developer with a knack for crafting
+                intuitive, high-performance applications. I explore diverse
+                technologies to build scalable solutions and solve complex
                 technical challenges.
                 <div className="flex flex-col">
                   <span className="text-white">Wanna know more about me? </span>
@@ -53,17 +55,18 @@ export default function HeroSection() {
                 </div>
               </p>
             </section>
-
             {/* Skills */}
             <section className="space-y-2 md:block hidden">
               <h2 className="text-xl md:text-2xl font-semibold">Skills</h2>
               <ul className="list-disc list-inside text-neutral-400 text-sm md:text-base">
-                <li>Web Designer</li>
+                <li>Frontend Development</li>
                 <li>Backend Development</li>
                 <li>Database Management</li>
+                <li>API Development & Integration</li>
               </ul>
             </section>
-
+            {/* Connect Here */}
+            import {(FaLinkedin, FaDiscord, FaInstagram)} from "react-icons/fa";
             {/* Connect Here */}
             <section className="space-y-2 md:block hidden">
               <h2 className="text-xl md:text-2xl font-semibold">Let's Talk!</h2>
@@ -73,12 +76,9 @@ export default function HeroSection() {
                     href="https://www.linkedin.com/in/miheer-gautam/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="text-2xl md:text-3xl hover:text-cust-red"
                   >
-                    <img
-                      src="assets/linkedin.png"
-                      alt="Linkedin icon"
-                      className="w-6 h-6 md:w-7 md:h-7 rounded-full"
-                    />
+                    <FaLinkedin />
                   </a>
                 </li>
                 <li>
@@ -86,12 +86,19 @@ export default function HeroSection() {
                     href="https://discord.com/users/miheer_4"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="text-2xl md:text-3xl hover:text-cust-red"
                   >
-                    <img
-                      src="assets/discord3.png"
-                      alt="Discord icon"
-                      className="w-6 h-6 md:w-7 md:h-7 rounded-full"
-                    />
+                    <FaDiscord />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.instagram.com/miheer_gautam4?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-2xl md:text-3xl hover:text-cust-red"
+                  >
+                    <FaInstagram />
                   </a>
                 </li>
               </ul>
@@ -136,7 +143,7 @@ export default function HeroSection() {
 
         {/* Download CV Button */}
         <a
-          href="assets/Resume_Miheer_Gautam.pdf"
+          href="assets/Miheer_Resume_T.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="border border-neutral-300 py-2 px-8 rounded-2xl text-lg md:text-xl font-semibold mt-4 cursor-pointer bg-neutral-900 hover:bg-cust-red transition duration-200"

@@ -9,7 +9,7 @@ import Blogs from "./pages/Blogs/Blogs";
 
 function App() {
   return (
-    <div className="flex flex-col bg-neutral-900 min-h-screen">
+    <div className=" bg-neutral-900">
       <Router basename="zenith-Portfolio/">
         <TopBar />
         <Routes>
