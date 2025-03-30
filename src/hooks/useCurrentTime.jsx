@@ -22,11 +22,11 @@ export default function useCurrentTime() {
   };
 
   useEffect(() => {
-    fetchTime(); // Fetch immediately
-    const intervalId = setInterval(fetchTime, timeInterval); // Set up interval
+    fetchTime(); 
+    const intervalId = setInterval(fetchTime, timeInterval); 
 
-    return () => clearInterval(intervalId); // Cleanup on unmount
-  }, [timeInterval]); // Depend on timeInterval
+    return () => clearInterval(intervalId);
+  }, [timeInterval]); 
 
   return { currentTime };
 }
