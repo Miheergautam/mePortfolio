@@ -1,5 +1,5 @@
 import React from "react";
-import { FaLinkedin, FaDiscord, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaDiscord, FaInstagram, FaGithub } from "react-icons/fa";
 
 export default function HeroSection() {
   const scrollToSection = (sectionId) => {
@@ -28,7 +28,7 @@ export default function HeroSection() {
             </span>
           </h1>
           <h2 className="text-2xl md:text-4xl text-center font-semibold">
-            ~ Full-Stack Developer
+            ~ Software Developer
           </h2>
         </div>
 
@@ -64,7 +64,24 @@ export default function HeroSection() {
                 <li>Database Management</li>
                 <li>API Development & Integration</li>
               </ul>
+              <span>
+                {". . ."}{" "}
+                <span
+                  onClick={() => {
+                    const element = document.getElementById("projects");
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  className="text-cust-red cursor-pointer"
+                  role="button"
+                  tabIndex={0}
+                >
+                  More
+                </span>
+              </span>
             </section>
+
             {/* Connect Here */}
             <section className="space-y-2 md:block hidden">
               <h2 className="text-xl md:text-2xl font-semibold">Let's Talk!</h2>
@@ -77,6 +94,16 @@ export default function HeroSection() {
                     className="text-2xl md:text-3xl hover:text-cust-red"
                   >
                     <FaLinkedin />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/Miheergautam"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-2xl md:text-3xl hover:text-cust-red"
+                  >
+                    <FaGithub />
                   </a>
                 </li>
                 <li>
@@ -115,7 +142,7 @@ export default function HeroSection() {
             <div className="flex gap-1 text-sm md:text-base">
               <span>{"<"}</span>
               <span className="font-semibold">
-                <span className="text-cust-red">@</span>updating_me
+                <span className="text-cust-red">@</span>updating_me_
               </span>
               <span>{"/>"}</span>
             </div>
@@ -125,16 +152,16 @@ export default function HeroSection() {
           <div className="hidden md:flex flex-col justify-center text-end gap-6 mr-0 md:mr-6">
             <section className="space-y-2">
               <h2 className="text-xl md:text-2xl font-semibold">
-                PROJECTS DONE
+                PROJECTS COMPLETED
               </h2>
-              <div className="text-4xl md:text-6xl text-neutral-400">7+</div>
+              <div className="text-4xl md:text-6xl text-neutral-400"> <span className="text-cust-red">7</span>+</div>
             </section>
 
             <section className="space-y-2">
               <h2 className="text-xl md:text-2xl font-semibold">
                 YEARS OF EXPERIENCE
               </h2>
-              <div className="text-4xl md:text-6xl text-neutral-400">2+</div>
+              <div className="text-4xl md:text-6xl text-neutral-400"><span className="text-cust-red">2</span>+</div>
             </section>
           </div>
         </div>
@@ -144,9 +171,9 @@ export default function HeroSection() {
           href="assets/Miheer_Resume_T.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="border border-neutral-300 py-2 px-8 rounded-2xl text-lg md:text-xl font-semibold mt-4 cursor-pointer bg-neutral-900 hover:bg-cust-red transition duration-200"
+          className="border border-neutral-300 text-white hover:text-white py-2 px-8 rounded-2xl text-lg md:text-xl font-semibold mt-4 cursor-pointer bg-neutral-900 hover:bg-cust-red transition duration-200"
         >
-          <span>.</span> Download CV
+          <span className="text-cust-red">.</span> Download CV
         </a>
       </div>
     </section>
