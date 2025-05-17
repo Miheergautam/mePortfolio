@@ -8,9 +8,10 @@ export default function SelectionBar() {
 
   return (
     <div className="w-full max-w-7xl text-white h-full">
-      <div className="flex flex-col md:flex-row py-10 items-center md:items-start">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-2 py-10">
         {/* Sidebar Menu */}
-        <nav className="flex flex-col w-full md:w-1/4 justify-center md:justify-start border-4 border-neutral-500 rounded-3xl overflow-hidden p-2 gap-2">
+        <nav className="col-span-1 flex flex-col justify-center md:justify-start rounded-2xl overflow-hidden">
+          <div className="border-2 border-neutral-600 rounded-2xl p-2 flex flex-col gap-2 ">
           {["AboutMe", "Education", "Experience"].map((item) => (
             <div
               key={item}
@@ -24,10 +25,11 @@ export default function SelectionBar() {
               {item}
             </div>
           ))}
+          </div>
         </nav>
 
         {/* Content Section */}
-        <div className="mt-4 md:mt-0 ml-0 md:ml-2 px-4 py-2 w-full md:w-3/4 bg-neutral-800 rounded-3xl h-full">
+        <div className="col-span-1 md:col-span-3 px-4 py-2 bg-neutral-800 rounded-3xl h-full">
           {selected === "AboutMe" && <AboutMe />}
           {selected === "Education" && <Education />}
           {selected === "Experience" && <Experience />}

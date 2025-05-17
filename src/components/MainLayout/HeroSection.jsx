@@ -12,7 +12,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="flex justify-center items-center text-cust-light p-4"
+      className="flex justify-center items-center text-cust-light p-4 min-h-screen"
     >
       <div className="flex flex-col justify-center items-center w-full max-w-7xl">
         <span className="border-2 border-neutral-400 px-4 py-1 rounded-2xl text-cust-red text-lg md:text-xl font-semibold">

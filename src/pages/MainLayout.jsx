@@ -10,12 +10,8 @@ import Footer from "../components/MainLayout/Footer/Footer";
 export default function MainLayout() {
   return (
     <div className="flex flex-col font-clash-display">
-      <div className="min-h-screen py-8 px-4">
         <HeroSection />
-      </div>
-      <div className="min-h-screen py-8 px-4">
         <Services />
-      </div>
       <div className="min-h-screen py-8 px-4">
         <WorkSection />
       </div>
