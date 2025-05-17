@@ -3,15 +3,15 @@ import { VscGithubInverted } from "react-icons/vsc";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const projects = [
+  { title: "MeBlogs", description: "Online Publishing Application", image: "https://i.pinimg.com/474x/93/c0/c6/93c0c6f6fdd4cf6c3f767b9d6097d830.jpg" },
   { title: "WORKWAVE", description: "HR Management System", image: "assets/Web1.jpg" },
   { title: "FOODIO", description: "Food Delivery Application", image: "assets/Web3.jpg" },
-  { title: "meBlogs", description: "Online Publishing Application", image: "https://i.pinimg.com/474x/93/c0/c6/93c0c6f6fdd4cf6c3f767b9d6097d830.jpg" },
   { title: "BUNKERS", description: "Hostel Accommodation Application", image: "assets/Web2.jpg" },
 ];
 
 export default function WebProjects() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerPage = 2;
+  const itemsPerPage = 1;
   const totalPages = Math.ceil(projects.length / itemsPerPage);
 
   const handleNext = () => {
@@ -25,7 +25,7 @@ export default function WebProjects() {
   return (
     <div className="p-4 flex flex-col items-center">
       {/* Large screens: Paginated layout */}
-      <div className="hidden md:flex gap-6 relative items-center w-full max-w-5xl">
+      <div className="hidden md:flex gap-6 relative items-center w-full max-w-7xl">
         <button onClick={handlePrev} className="absolute left-0 p-3 bg-neutral-700 rounded-full z-10">
           <FaArrowLeft className="text-white size-6" />
         </button>

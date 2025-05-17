@@ -10,7 +10,7 @@ const mlProjects = [
 
 export default function MLProjects() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerPage = 2;
+  const itemsPerPage = 1;
   const totalPages = Math.ceil(mlProjects.length / itemsPerPage);
 
   const handleNext = () => {
@@ -24,7 +24,7 @@ export default function MLProjects() {
   return (
     <div className="p-4 flex flex-col items-center">
       {/* Large screens: Paginated layout */}
-      <div className="hidden md:flex gap-6 relative items-center w-full max-w-5xl">
+      <div className="hidden md:flex gap-6 relative items-center w-full max-w-7xl">
         <button onClick={handlePrev} className="absolute left-0 p-3 bg-neutral-700 rounded-full z-10">
           <FaArrowLeft className="text-white size-6" />
         </button>

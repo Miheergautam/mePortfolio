@@ -18,7 +18,7 @@ const photographyProjects = [
 
 export default function Photography() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerPage = 2;
+  const itemsPerPage = 1;
   const totalPages = Math.ceil(photographyProjects.length / itemsPerPage);
 
   const handleNext = () => {
@@ -29,16 +29,17 @@ export default function Photography() {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? totalPages - 1 : prevIndex - 1));
   };
 
+
   return (
     <div className="p-4 flex flex-col items-center">
       {/* Large screens: Paginated layout */}
-      <div className="hidden md:flex gap-6 relative items-center w-full max-w-5xl">
+      <div className="hidden md:flex gap-6 relative items-center w-full max-w-7xl">
         <button onClick={handlePrev} className="absolute left-0 p-3 bg-neutral-700 rounded-full z-10">
           <FaArrowLeft className="text-white size-6" />
         </button>
         <div className="flex w-full justify-center gap-6">
           {photographyProjects.slice(currentIndex * itemsPerPage, currentIndex * itemsPerPage + itemsPerPage).map((project, index) => (
-            <div key={index} className="flex flex-col w-full h-96 bg-neutral-800 rounded-xl shadow-lg overflow-hidden">
+            <div key={index} className="flex flex-col w-1/2 h-96 bg-neutral-800 rounded-xl shadow-lg overflow-hidden">
               <div className="p-2 w-full h-3/4 overflow-hidden">
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover rounded-t-xl" />
               </div>
@@ -47,7 +48,9 @@ export default function Photography() {
                   <h1 className="text-cust-red font-bold text-2xl">{project.title}</h1>
                   <p className="text-white text-lg font-semibold">({project.description})</p>
                 </div>
-                <VscGithubInverted className="size-10 text-white" />
+                <a href="https://github.com/Miheergautam" target="_blank" rel="noopener noreferrer">
+                  <VscGithubInverted className="size-10 text-white" />
+                </a>
               </div>
             </div>
           ))}
@@ -68,7 +71,9 @@ export default function Photography() {
               <h1 className="text-cust-red font-bold text-2xl">{photographyProjects[currentIndex].title}</h1>
               <p className="text-white text-lg font-semibold">({photographyProjects[currentIndex].description})</p>
             </div>
-            <VscGithubInverted className="size-10 text-white" />
+            <a href="https://github.com/Miheergautam" target="_blank" rel="noopener noreferrer">
+              <VscGithubInverted className="size-10 text-white" />
+            </a>
           </div>
         </div>
 

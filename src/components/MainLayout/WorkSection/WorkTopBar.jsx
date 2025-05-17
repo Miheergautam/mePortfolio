@@ -5,33 +5,33 @@ import VideoEditing from "./VideoEditing";
 import Photography from "./Photography";
 
 export default function WorkTopBar() {
-  const [activeTab, setActiveTab] = useState("Full Stack Development");
+  const [activeTab, setActiveTab] = useState("Web Technology");
 
   return (
     <div className="w-full flex flex-col text-white justify-center items-center gap-6">
       {/* Button Container */}
-      <div className="font-semibold border-2 border-neutral-400 py-4 px-6 max-w-7xl flex flex-wrap justify-center md:justify-start md:gap-4 rounded-3xl">
+      <div className="font-semibold border border-neutral-400 py-4 px-6 max-w-7xl flex flex-wrap justify-center md:justify-start md:gap-4 rounded-3xl">
         {/* Mobile Design: Stack buttons */}
         <div className="flex flex-col md:flex-row md:gap-4 gap-3 w-full">
           <button
             className={`py-2 px-4 rounded-2xl transition duration-300 ${
-              activeTab === "Full Stack Development"
+              activeTab === "Web Technology"
                 ? "bg-cust-red"
                 : "bg-neutral-700 hover:bg-neutral-600"
             }`}
-            onClick={() => setActiveTab("Full Stack Development")}
+            onClick={() => setActiveTab("Web Technology")}
           >
-            {"<"} Full Stack Development {"/>"}
+            {"<"} Web Technology {"/>"}
           </button>
           <button
             className={`py-2 px-4 rounded-2xl transition duration-300 ${
-              activeTab === "AI/Machine Learning"
+              activeTab === "AI/ML"
                 ? "bg-cust-red"
                 : "bg-neutral-700 hover:bg-neutral-600"
             }`}
-            onClick={() => setActiveTab("AI/Machine Learning")}
+            onClick={() => setActiveTab("AI/ML")}
           >
-            AI/Machine Learning
+            AI/ML
           </button>
           <button
             className={`py-2 px-4 rounded-2xl transition duration-300 ${
@@ -58,9 +58,9 @@ export default function WorkTopBar() {
 
       {/* Content Section */}
       <div className="h-full max-w-7xl w-full">
-        {activeTab === "Full Stack Development" ? (
+        {activeTab === "Web Technology" ? (
           <WebProjects />
-        ) : activeTab === "AI/Machine Learning" ? (
+        ) : activeTab === "AI/ML" ? (
           <MLProjects />
         ) : activeTab === "Video Editing" ? (
           <VideoEditing />

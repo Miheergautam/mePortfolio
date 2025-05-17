@@ -12,9 +12,7 @@ export default function MainLayout() {
     <div className="flex flex-col font-clash-display">
         <HeroSection />
         <Services />
-      <div className="min-h-screen py-8 px-4">
         <WorkSection />
-      </div>
       <div className="min-h-screen py-8 px-4">
         <Contact />
       </div>
