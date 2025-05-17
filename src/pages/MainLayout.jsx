@@ -13,9 +13,7 @@ export default function MainLayout() {
         <HeroSection />
         <Services />
         <WorkSection />
-      <div className="min-h-screen py-8 px-4">
         <Contact />
-      </div>
       <Footer />
     </div>
   );

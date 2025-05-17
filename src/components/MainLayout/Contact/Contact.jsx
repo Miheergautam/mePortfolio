@@ -41,7 +41,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-6 p-4 pb-16">
+    <div className="flex flex-col min-h-screen items-center gap-6 p-4 pb-16">
       <div className="w-full max-w-7xl text-white flex justify-center">
         <div className="flex flex-col font-semibold text-5xl md:text-7xl">
           <div className="pl-2 md:pl-2">
