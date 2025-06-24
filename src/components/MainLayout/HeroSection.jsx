@@ -12,7 +12,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="flex justify-center my-20 text-cust-light"
+      className="flex justify-center w-full mt-10 text-cust-light "
     >
       <div className="flex flex-col justify-center items-center w-full max-w-7xl">
         <span className="border-2 border-neutral-400 px-4 py-1 rounded-2xl text-cust-red text-lg md:text-xl font-semibold">
@@ -62,7 +62,7 @@ export default function HeroSection() {
                 <li>Frontend Development</li>
                 <li>Backend Development</li>
                 <li>Database Management</li>
-                <li>API Development & Integration</li>
+                <li>Full Stack Tools</li>
               </ul>
               <span>
                 {". . ."}{" "}

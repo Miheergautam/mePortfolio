@@ -1,74 +1,43 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import WebProjects from "./WebProjects";
 import MLProjects from "./MLProjects";
 import VideoEditing from "./VideoEditing";
 import Photography from "./Photography";
 
+const tabs = ["Web Application", "Machine Learning", "Automation Tools", "Video Editing"];
+
+const tabComponents = {
+  "Web Application": <WebProjects />,
+  "Machine Learning": <MLProjects />,
+  "Automation Tools": <VideoEditing />,
+  "Video Editing": <Photography />,
+};
+
 export default function WorkTopBar() {
-  const [activeTab, setActiveTab] = useState("Web Technology");
+  const [activeTab, setActiveTab] = useState("Web Application");
 
   return (
-    <div className="w-full flex flex-col text-white justify-center items-center gap-6">
-      {/* Button Container */}
-      <div className="font-semibold border border-neutral-400 py-4 px-6 max-w-7xl flex flex-wrap justify-center md:justify-start md:gap-4 rounded-3xl">
-        {/* Mobile Design: Stack buttons */}
-        <div className="flex flex-col md:flex-row md:gap-4 gap-3 w-full">
+    <div className="w-full max-w-7xl flex flex-col items-center text-white py-4 gap-6">
+      {/* Tab Bar */}
+      <nav className="flex justify-center flex-wrap gap-3 md:gap-6 w-full px-4">
+        {tabs.map((tab) => (
           <button
-            className={`py-2 px-4 rounded-2xl transition duration-300 ${
-              activeTab === "Web Technology"
-                ? "bg-cust-red"
-                : "bg-neutral-700 hover:bg-neutral-600"
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            className={`font-semibold text-lg md:text-xl px-4 py-2 text-center rounded-2xl transition-all duration-300 cursor-pointer ${
+              activeTab === tab
+                ? "text-black bg-cust-red "
+                : "text-cust-red hover:bg-cust-red border-b border-cust-red hover:text-black"
             }`}
-            onClick={() => setActiveTab("Web Technology")}
           >
-            {"<"} Web Technology {"/>"}
+            {tab}
           </button>
-          <button
-            className={`py-2 px-4 rounded-2xl transition duration-300 ${
-              activeTab === "AI/ML"
-                ? "bg-cust-red"
-                : "bg-neutral-700 hover:bg-neutral-600"
-            }`}
-            onClick={() => setActiveTab("AI/ML")}
-          >
-            AI/ML
-          </button>
-          <button
-            className={`py-2 px-4 rounded-2xl transition duration-300 ${
-              activeTab === "Video Editing"
-                ? "bg-cust-red"
-                : "bg-neutral-700 hover:bg-neutral-600"
-            }`}
-            onClick={() => setActiveTab("Video Editing")}
-          >
-            Video Editing
-          </button>
-          <button
-            className={`py-2 px-4 rounded-2xl transition duration-300 ${
-              activeTab === "Photography"
-                ? "bg-cust-red"
-                : "bg-neutral-700 hover:bg-neutral-600"
-            }`}
-            onClick={() => setActiveTab("Photography")}
-          >
-            Photography
-          </button>
-        </div>
-      </div>
+        ))}
+      </nav>
 
-      {/* Content Section */}
-      <div className="h-full max-w-7xl w-full">
-        {activeTab === "Web Technology" ? (
-          <WebProjects />
-        ) : activeTab === "AI/ML" ? (
-          <MLProjects />
-        ) : activeTab === "Video Editing" ? (
-          <VideoEditing />
-        ) : activeTab === "Photography" ? (
-          <Photography />
-        ) : (
-          <WebProjects />
-        )}
+      {/* Animated Content */}
+      <div className="w-full relative min-h-[300px] md:min-h-[400px]">
+            {tabComponents[activeTab]}
       </div>
     </div>
   );

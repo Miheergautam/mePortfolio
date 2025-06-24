@@ -7,29 +7,27 @@ export default function SelectionBar() {
   const [selected, setSelected] = useState("AboutMe");
 
   return (
-    <div className="w-full max-w-7xl text-white h-full">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-2 py-10">
-        {/* Sidebar Menu */}
-        <nav className="col-span-1 flex flex-col justify-center md:justify-start rounded-2xl overflow-hidden">
-          <div className="border-2 border-neutral-600 rounded-2xl p-2 flex flex-col gap-2 ">
-          {["AboutMe", "Education", "Experience"].map((item) => (
-            <div
-              key={item}
-              className={`font-semibold text-lg md:text-xl p-5 text-center rounded-2xl transition-all duration-300 cursor-pointer ${
-                selected === item
-                  ? "bg-cust-red text-white shadow-lg"
-                  : "bg-neutral-800 text-neutral-400 hover:bg-neutral-600 hover:text-white"
-              }`}
-              onClick={() => setSelected(item)}
-            >
-              {item}
-            </div>
-          ))}
+    <div className="w-full max-w-7xl text-white h-full flex flex-col justify-center items-center py-4">
+      {/* Sidebar Menu */}
+      <nav className="flex justify-center space-x-5 max-w-xl w-full p-2 rounded-2xl">
+        {["AboutMe", "Education", "Experience"].map((item) => (
+          <div
+            key={item}
+            className={`font-semibold text-lg md:text-xl px-4 py-2 text-center rounded-2xl transition-all duration-300 cursor-pointer ${
+              selected === item
+                ? "text-black bg-cust-red "
+                : "text-cust-red hover:bg-cust-red border-b border-cust-red hover:text-black"
+            }`}
+            onClick={() => setSelected(item)}
+          >
+            {item}
           </div>
-        </nav>
+        ))}
+      </nav>
 
-        {/* Content Section */}
-        <div className="col-span-1 md:col-span-3 px-4 py-2 bg-neutral-800 rounded-3xl h-full">
+      {/* Content Section */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 py-10 max-w-6xl w-full">
+        <div className="col-span-1 md:col-span-3 px-4 py-2 rounded-3xl">
           {selected === "AboutMe" && <AboutMe />}
           {selected === "Education" && <Education />}
           {selected === "Experience" && <Experience />}

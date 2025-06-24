@@ -9,20 +9,17 @@ import Blogs from "./pages/Blogs/Blogs";
 
 function App() {
   return (
-    <div className=" bg-neutral-900">
-      <Router basename="zenith-Portfolio/">
-        <TopBar />
-        <Routes>
-          <Route path="/" element={<MainLayout />} />
-        </Routes>
-        <Routes>
-          <Route path="/mytech" element={<MyTech />} />
-        </Routes>
-        <Routes>
-          <Route path="/blogs" element={<Blogs />} />
-        </Routes>
-      </Router>
-    </div>
+    <Router basename="zenith-Portfolio/">
+      <Routes>
+        <Route path="/" element={<MainLayout />} />
+      </Routes>
+      <Routes>
+        <Route path="/mytech" element={<MyTech />} />
+      </Routes>
+      <Routes>
+        <Route path="/blogs" element={<Blogs />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,73 +1,76 @@
 export default function Education() {
-  return (
-    <div className="p-2 flex flex-col justify-between">
-      {/* First Education Block */}
-      <div className="p-4">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center pt-2 px-2 text-neutral-300 gap-2">
-          <h1 className="text-lg md:text-2xl font-semibold text-white">
-            INDIAN INSTITUTE OF TECHNOLOGY KANPUR
-          </h1>
-          <h1 className="text-sm md:text-base text-right">Kanpur, India</h1>
-        </div>
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center px-2 text-neutral-300 gap-2">
-          <h1 className="italic">
-            Exchange Student ~{" "}
-            <span className="text-cust-red font-semibold">
-              Computer Science and Engineering
-            </span>
-          </h1>
-          <h1 className="text-sm md:text-base">January 2025 - May 2025</h1>
-        </div>
+  const educationData = [
+    {
+      institute: "INDIAN INSTITUTE OF TECHNOLOGY KANPUR",
+      location: "Kanpur, India",
+      title: "Exchange Student",
+      field: "Computer Science and Engineering",
+      duration: "Spring 25'",
+      specialization: null,
+      image: "public/assets/IIT_Kanpur_Logo.svg",
+    },
+    {
+      institute: "INDIAN INSTITUTE OF TECHNOLOGY GANDHINAGAR",
+      location: "Gandhinagar, India",
+      title: "Exchange Student",
+      field: "Computer Science and Engineering",
+      duration: "Spring 24'",
+      specialization: null,
+      image: "public/assets/IIT_Gandhinagar_Logo.svg",
+    },
+    {
+      institute: "JK LAKSHMIPAT UNIVERSITY",
+      location: "Jaipur, India",
+      title: "Bachelor of Technology in",
+      field: "Computer Science",
+      duration: "August 2022 - Present",
+      specialization: "Artificial Intelligence and Machine Learning",
+      image: "public/assets/JKLU.png",
+    },
+  ];
+
+  const renderEducationBlock = (edu, index) => (
+    <div
+      key={index}
+      className="px-4 py-6 flex flex-col md:flex-row gap-4 items-center md:items-center justify-between bg-neutral-800 rounded-2xl"
+    >
+      <div className="w-24 h-24 md:w-30 md:h-30 bg-white p-2 flex items-center justify-center rounded-full overflow-hidden">
+        <img
+          src={edu.image}
+          alt={edu.institute + " logo"}
+          className="object-contain w-full h-full"
+        />
       </div>
 
-      {/* Second Education Block */}
-      <div className="p-4">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center pt-2 px-2 text-neutral-300 gap-2">
+      <div className="flex-1 flex flex-col gap-2 text-neutral-300">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-1 md:gap-4">
           <h1 className="text-lg md:text-2xl font-semibold text-white">
-            INDIAN INSTITUTE OF TECHNOLOGY GANDHINAGAR
+            {edu.institute}
           </h1>
-          <h1 className="text-sm md:text-base text-right">
-            Gandhinagar, India
-          </h1>
+          <h1 className="text-sm md:text-base">{edu.location}</h1>
         </div>
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center px-2 text-neutral-300 gap-2">
-          <h1 className="italic">
-            Exchange Student 
-            ~{" "}
-            <span className="text-cust-red font-semibold">
-              Computer Science and Engineering
-            </span>
-          </h1>
-          <h1 className="text-sm md:text-base">January 2024 - April 2024</h1>
-        </div>
-      </div>
 
-      {/* First Education Block */}
-      <div className="p-4">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center pt-2 px-2 text-neutral-300 gap-2">
-          <h1 className="text-lg md:text-2xl font-semibold text-white">
-            JK LAKSHMIPAT UNIVERSITY
-          </h1>
-          <h1 className="text-sm md:text-base text-right">Jaipur, India</h1>
-        </div>
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center px-2 text-neutral-300 gap-2">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-1 md:gap-4">
           <h1 className="italic">
-            Bachelor of Technology in{" "}
-            <span className="text-cust-red font-semibold">
-              Computer Science
-            </span>{" "}
+            {edu.title} ~{" "}
+            <span className="text-cust-red font-semibold">{edu.field}</span>
           </h1>
-          <h1 className="text-sm md:text-base">August 2022 - Present</h1>
+          <h1 className="text-sm md:text-base">{edu.duration}</h1>
         </div>
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center px-2 text-neutral-300 gap-2">
-          <h1 className="italic">
-          ~ Specialization in 
-            <span className="text-cust-red font-semibold">
-             {" "}Artificial Intelligence and Machine Learning
+
+        {edu.specialization && (
+          <div className="text-sm">
+            Specialization in{" "}
+            <span className="text-cust-red font-md  italic">
+              {edu.specialization}
             </span>
-          </h1>
-        </div>
+          </div>
+        )}
       </div>
     </div>
+  );
+
+  return (
+    <div className="p-2 flex flex-col gap-4">{educationData.map(renderEducationBlock)}</div>
   );
 }

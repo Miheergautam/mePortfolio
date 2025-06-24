@@ -19,11 +19,11 @@ export default function MenuBar({ menuOpen, setMenuOpen }) {
   };
 
   return (
-    <div className="relative flex w-full justify-center mix-blend-normal">
+    <div className="relative flex w-full justify-center mix-blend-normal  max-w-7xl">
       {menuOpen && (
-        <div className="absolute flex flex-row justify-between text-cust-light border border-neutral-500 w-full max-w-7xl bg-cust-dark rounded-xl mx-2 py-4 px-4 md:py-6 md:px-6">
+        <div className="absolute flex flex-row justify-between text-cust-light border border-neutral-500 w-full bg-cust-dark rounded-xl mx-2 py-4 px-2 md:py-4 md:px-6">
           <img
-            src="assets/Profile.jpg"
+            src="public/assets/profilex.jpg"
             alt="Profile"
             className="w-32 md:w-60 object-cover rounded-lg"
           />
@@ -49,7 +49,7 @@ export default function MenuBar({ menuOpen, setMenuOpen }) {
             <Link to={"https://meblogs-4.vercel.app/"}
               className="font-bold text-3xl md:text-5xl text-cust-red mb-2 cursor-pointer hover:bg-cust-red hover:text-black px-2 py-1 rounded"
             >
-              BLOGS
+              .MeBLOGS
             </Link>
             <h1
               onClick={() => handleNavigate("/mytech")}
