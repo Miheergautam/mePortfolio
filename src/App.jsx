@@ -1,5 +1,4 @@
 import React from "react";
-import TopBar from "./components/MainLayout/TopBar/TopBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // Pages imports
@@ -9,7 +8,7 @@ import Blogs from "./pages/Blogs/Blogs";
 
 function App() {
   return (
-    <Router basename="zenith-Portfolio/">
+    <Router basename="mePortfolio/">
       <Routes>
         <Route path="/" element={<MainLayout />} />
       </Routes>
