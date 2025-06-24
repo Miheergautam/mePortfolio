@@ -23,7 +23,7 @@ export default function MenuBar({ menuOpen, setMenuOpen }) {
       {menuOpen && (
         <div className="absolute flex flex-row justify-between text-cust-light border border-neutral-500 w-full bg-cust-dark rounded-xl mx-2 py-4 px-2 md:py-4 md:px-6">
           <img
-            src="public/assets/profilex.jpg"
+            src="assets/profilex.jpg"
             alt="Profile"
             className="w-32 md:w-60 object-cover rounded-lg"
           />
