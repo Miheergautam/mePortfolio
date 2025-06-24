@@ -1,24 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-// Pages imports
+// Pages
 import MainLayout from "./pages/MainLayout";
 import MyTech from "./pages/MyTech/MyTech";
 import Blogs from "./pages/Blogs/Blogs";
 
+// Loader
+import Loader from "./components/Loader";
+
 function App() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
-    <Router basename="mePortfolio/">
-      <Routes>
-        <Route path="/" element={<MainLayout />} />
-      </Routes>
-      <Routes>
-        <Route path="/mytech" element={<MyTech />} />
-      </Routes>
-      <Routes>
-        <Route path="/blogs" element={<Blogs />} />
-      </Routes>
-    </Router>
+    <>
+      {!isLoaded ? (
+        <Loader onComplete={() => setIsLoaded(true)} />
+      ) : (
+        <Router basename="mePortfolio/">
+          <Routes>
+            <Route path="/" element={<MainLayout />} />
+            <Route path="/mytech" element={<MyTech />} />
+            <Route path="/blogs" element={<Blogs />} />
+          </Routes>
+        </Router>
+      )}
+    </>
   );
 }
 
