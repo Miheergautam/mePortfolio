@@ -1,16 +1,16 @@
 import { useState } from "react";
 import WebProjects from "./WebProjects";
 import MLProjects from "./MLProjects";
-import VideoEditing from "./VideoEditing";
-import Photography from "./Photography";
+import Automation from "./Automation";
+import VideoProjects from "./VideoProjects";
 
 const tabs = ["Web Application", "Machine Learning", "Automation Tools", "Video Editing"];
 
 const tabComponents = {
   "Web Application": <WebProjects />,
   "Machine Learning": <MLProjects />,
-  "Automation Tools": <VideoEditing />,
-  "Video Editing": <Photography />,
+  "Automation Tools": <Automation />,
+  "Video Editing": <VideoProjects />,
 };
 
 export default function WorkTopBar() {

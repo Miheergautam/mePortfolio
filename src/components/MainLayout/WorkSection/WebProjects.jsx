@@ -10,6 +10,12 @@ const projects = [
     liveLink: "https://meblogs-demo.com",
   },
   {
+    title: "FooDio",
+    description: "Food Ordering Application",
+    image: "assets/Web3.jpg",
+    liveLink: "https://foodio-demo.com",
+  },
+  {
     title: ".meConnect",
     description: "Chat Application",
     image: "assets/meconnect.png",
@@ -22,15 +28,15 @@ const projects = [
     liveLink: "https://workwave-demo.com",
   },
   {
-    title: "FooDio",
-    description: "Food Ordering Application",
-    image: "assets/Web3.jpg",
-    liveLink: "https://foodio-demo.com",
-  },
-  {
     title: "BUNKERS",
     description: "Hostel Accommodation Application",
     image: "assets/Web2.jpg",
+    liveLink: "https://bunkers-demo.com",
+  },
+  {
+    title: "OLYMPIQ",
+    description: "Visual Data Analytics - Olympics",
+    image: "assets/olympq.avif",
     liveLink: "https://bunkers-demo.com",
   },
 ];

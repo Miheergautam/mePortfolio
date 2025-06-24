@@ -2,35 +2,34 @@ import { useState } from "react";
 import { VscGithubInverted } from "react-icons/vsc";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-const mlProjects = [
+const videoProjects = [
   {
-    title: "Pac-Man",
-    description: "Automated Pac-Man",
-    image: "assets/ML1.jpg",
-    liveLink: "https://example.com/pacman",
+    title: "Travel",
+    description: "A collection of my travel experiences",
+    image: "https://i.pinimg.com/474x/f8/53/2b/f8532b4ae50b1446f9fc5abead12d704.jpg",
+    liveLink: "https://example.com/travel-video",
   },
   {
-    title: "Scholar Mind",
-    description: "Research Assistent",
-    image: "assets/Scholarmind.jpg",
-    liveLink: "https://example.com/chatbot",
+    title: "Short Trip",
+    description: "Capturing the essence of short trips",
+    image: "https://i.pinimg.com/474x/99/ff/2e/99ff2e1805d1b51b58a48dd435e62b17.jpg",
+    liveLink: "https://example.com/short-trip",
   },
 ];
 
-export default function MLProjects() {
+export default function VideoProjects() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 2;
-  const totalPages = Math.ceil(mlProjects.length / itemsPerPage);
+  const totalPages = Math.ceil(videoProjects.length / itemsPerPage);
 
   const handleNext = () => setCurrentIndex((prev) => (prev + 1) % totalPages);
-  const handlePrev = () =>
-    setCurrentIndex((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
+  const handlePrev = () => setCurrentIndex((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
 
   return (
     <div className="p-4 flex flex-col items-center gap-6">
       {/* Desktop View */}
       <div className="hidden md:flex gap-6 w-full max-w-6xl items-center justify-center">
-        {mlProjects
+        {videoProjects
           .slice(currentIndex * itemsPerPage, currentIndex * itemsPerPage + itemsPerPage)
           .map((project, index) => (
             <div
@@ -63,12 +62,8 @@ export default function MLProjects() {
 
               {/* Project Details */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 flex flex-col justify-end">
-                <h2 className="text-2xl font-bold text-cust-red">
-                  {project.title}
-                </h2>
-                <p className="text-white text-lg font-medium">
-                  {project.description}
-                </p>
+                <h2 className="text-2xl font-bold text-cust-red">{project.title}</h2>
+                <p className="text-white text-lg font-medium">{project.description}</p>
               </div>
 
               {/* GitHub Link */}

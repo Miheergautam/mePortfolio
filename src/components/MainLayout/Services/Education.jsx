@@ -7,7 +7,7 @@ export default function Education() {
       field: "Computer Science and Engineering",
       duration: "Spring 25'",
       specialization: null,
-      image: "public/assets/IIT_Kanpur_Logo.svg",
+      image: "assets/IIT_Kanpur_Logo.svg",
     },
     {
       institute: "INDIAN INSTITUTE OF TECHNOLOGY GANDHINAGAR",
@@ -16,7 +16,7 @@ export default function Education() {
       field: "Computer Science and Engineering",
       duration: "Spring 24'",
       specialization: null,
-      image: "public/assets/IIT_Gandhinagar_Logo.svg",
+      image: "assets/IIT_Gandhinagar_Logo.svg",
     },
     {
       institute: "JK LAKSHMIPAT UNIVERSITY",
@@ -25,7 +25,7 @@ export default function Education() {
       field: "Computer Science",
       duration: "August 2022 - Present",
       specialization: "Artificial Intelligence and Machine Learning",
-      image: "public/assets/JKLU.png",
+      image: "assets/JKLU.png",
     },
   ];
 

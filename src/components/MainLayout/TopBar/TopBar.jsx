@@ -12,7 +12,7 @@ export default function TopBar() {
       <div className=" w-full max-w-7xl">
         <div className="relative flex justify-between items-center py-4 px-4 md:py-3 md:px-6">
           <div className="text-cust-red font-bold text-xl md:text-2xl">
-            <span className="text-white">.</span>mePortfolio
+            <span className="text-white">. </span>mePortfolio
           </div>
           <div className="text-neutral-500 text-xl md:text-xl flex gap-4 items-center">
             <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />

@@ -2,11 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Set background color for entire page */
-html, body, #root {
-    @apply bg-neutral-900 text-neutral-300;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
+html,
+body,
+#root {
+  @apply bg-neutral-900 text-neutral-300;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}

@@ -139,10 +139,10 @@ export default function HeroSection() {
                 alt="Profile photo"
               />
             </div>
-            <div className="flex gap-1 text-sm md:text-base">
+            <div className="flex gap-1 text-sm md:text-base border border-neutral-700 px-2 py-1 rounded-lg">
               <span>{"<"}</span>
               <span className="font-semibold">
-                <span className="text-cust-red">@</span>updating_me_
+                <span className="text-cust-red">@ </span>updating_me_
               </span>
               <span>{"/>"}</span>
             </div>
