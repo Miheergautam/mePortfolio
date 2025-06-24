@@ -168,7 +168,7 @@ export default function HeroSection() {
 
         {/* Download CV Button */}
         <a
-          href="assets/Miheer_Resume_T.pdf"
+          href="assets/MiheerResume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="border border-neutral-300 text-white hover:text-white py-2 px-8 rounded-2xl text-lg md:text-xl font-semibold mt-4 cursor-pointer bg-neutral-900 hover:bg-cust-red transition duration-200"
