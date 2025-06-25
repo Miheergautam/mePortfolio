@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import useSound from "use-sound";
+import { gtagEvent } from "../utils/analytics";
 
 import futuristicSong from "../sounds/song1.mp3";
 import retroSong from "../sounds/song2.mp3";
@@ -18,11 +19,8 @@ export default function Loader({ onComplete }) {
   const [hasStarted, setHasStarted] = useState(false);
   const intervalRef = useRef(null);
   const totalBlocks = 30;
-
-  // Keep track of which sound is currently playing
   const [activeSound, setActiveSound] = useState(null);
 
-  // Loaders for each theme
   const [playFuturistic, { sound: futuristicSound }] = useSound(
     futuristicSong,
     { volume: 0.2, loop: true, soundEnabled: !muted }
@@ -38,20 +36,14 @@ export default function Loader({ onComplete }) {
     soundEnabled: !muted,
   });
 
-  // Mapping theme to players
   const soundMap = {
     futuristic: { play: playFuturistic, instance: futuristicSound },
     retro: { play: playRetro, instance: retroSound },
     minimal: { play: playMinimal, instance: minimalSound },
   };
 
-  // Handle playing sound based on theme
   const startSound = (themeName) => {
-    // Stop any existing sound
-    if (activeSound) {
-      activeSound.stop();
-    }
-    // Start new one
+    if (activeSound) activeSound.stop();
     const selected = soundMap[themeName];
     if (selected) {
       selected.play();
@@ -59,7 +51,6 @@ export default function Loader({ onComplete }) {
     }
   };
 
-  // Start loader effect
   useEffect(() => {
     if (!hasStarted) return;
 
@@ -69,12 +60,13 @@ export default function Loader({ onComplete }) {
           if (prev >= 100) {
             clearInterval(intervalRef.current);
             if (activeSound) activeSound.stop();
+            gtagEvent("launch_completed");
             setTimeout(onComplete, 1000);
             return 100;
           }
           return prev + 1;
         });
-      }, 400);
+      }, 300);
     }, 500);
 
     return () => {
@@ -84,19 +76,18 @@ export default function Loader({ onComplete }) {
     };
   }, [hasStarted]);
 
-  // Handle theme/mute change during playback
   useEffect(() => {
     if (hasStarted) {
       startSound(theme);
+      gtagEvent("theme_changed", { theme });
     }
   }, [theme, muted]);
 
-  // Stop sound when loader completes
   useEffect(() => {
     if (progress >= 100 && activeSound) {
       activeSound.stop();
     }
-  }, [progress, activeSound]);
+  }, [progress]);
 
   const activeBlocks = Math.floor((progress / 100) * totalBlocks);
 
@@ -128,6 +119,7 @@ export default function Loader({ onComplete }) {
             onClick={() => {
               startSound(theme);
               setHasStarted(true);
+              gtagEvent("launch_started", { theme });
             }}
             className="px-10 py-4 md:px-12 md:py-5 rounded-2xl text-cust-red font-bold md:text-2xl tracking-widest 
              border border-cust-red bg-white/5 backdrop-blur-md 
@@ -172,7 +164,10 @@ export default function Loader({ onComplete }) {
       {/* Controls */}
       <div className="flex gap-4 mt-6 z-10">
         <button
-          onClick={() => setMuted(!muted)}
+          onClick={() => {
+            setMuted(!muted);
+            gtagEvent("mute_toggled", { muted: !muted });
+          }}
           className="text-xs text-cust-light opacity-50 hover:opacity-100 transition"
         >
           {muted ? "🔇 Unmute" : "🔊 Mute"}
@@ -192,6 +187,7 @@ export default function Loader({ onComplete }) {
           onClick={() => {
             clearInterval(intervalRef.current);
             if (activeSound) activeSound.stop();
+            gtagEvent("loader_skipped");
             onComplete();
           }}
           className="text-xs text-cust-light opacity-30 hover:opacity-80 transition"

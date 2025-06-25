@@ -2,9 +2,17 @@ import React, { useState } from "react";
 import AboutMe from "./AboutMe";
 import Education from "./Education";
 import Experience from "./Experience";
+import { gtagEvent } from "../../..//utils/analytics"; // Make sure this exists
 
 export default function SelectionBar() {
   const [selected, setSelected] = useState("AboutMe");
+
+  const handleTabClick = (item) => {
+    setSelected(item);
+
+    // GA4 Event
+    gtagEvent("tab_selected", { tab_name: item.toLowerCase() });
+  };
 
   return (
     <div className="w-full max-w-7xl text-white h-full flex flex-col justify-center items-center py-4">
@@ -15,10 +23,10 @@ export default function SelectionBar() {
             key={item}
             className={`font-semibold text-lg md:text-xl px-4 py-2 text-center rounded-2xl transition-all duration-300 cursor-pointer ${
               selected === item
-                ? "text-black bg-cust-red "
+                ? "text-black bg-cust-red"
                 : "text-cust-red hover:bg-cust-red border-b border-cust-red hover:text-black"
             }`}
-            onClick={() => setSelected(item)}
+            onClick={() => handleTabClick(item)}
           >
             {item}
           </div>
