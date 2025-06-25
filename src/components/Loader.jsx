@@ -108,20 +108,20 @@ export default function Loader({ onComplete }) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-neutral-900 text-cust-light font-mono relative overflow-hidden gap-6 px-4">
+    <div className="flex flex-col items-center justify-center h-screen bg-neutral-900 text-cust-light font-mono relative overflow-hidden gap-6">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-tr from-black via-neutral-900 to-black opacity-80" />
 
       {/* Cinematic Intro */}
       {!hasStarted && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black z-20 duration-700 px-4">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black z-20 duration-700">
           <button
             onClick={() => {
               startSound(theme);
               setHasStarted(true);
               gtagEvent("launch_started", { theme });
             }}
-            className="px-6 py-3 sm:px-10 sm:py-4 md:px-12 md:py-5 rounded-2xl text-cust-red font-bold text-sm sm:text-lg md:text-2xl tracking-widest 
+            className="px-10 py-4 md:px-12 md:py-5 rounded-2xl text-cust-red font-bold md:text-2xl tracking-widest 
              border border-cust-red bg-white/5 backdrop-blur-md 
              shadow-[0_4px_20px_rgba(255,0,0,0.2)] hover:shadow-[0_0_40px_rgba(255,0,0,0.5)]
              transition-all duration-300 hover:bg-cust-red hover:text-black"
@@ -132,16 +132,16 @@ export default function Loader({ onComplete }) {
       )}
 
       {/* Title */}
-      <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-6xl font-bold tracking-widest text-cust-red animate-pulse relative z-10 text-center">
+      <h1 className="text-3xl md:text-6xl font-bold tracking-widest text-cust-red animate-pulse relative z-10">
         LAUNCHING <span className="text-white">.</span>mePORTFOLIO
       </h1>
 
       {/* Loader Blocks */}
-      <div className="flex gap-[2px] w-[85vw] max-w-sm sm:max-w-md md:max-w-lg justify-center z-10 px-2 flex-wrap">
+      <div className="flex gap-1 w-72 md:w-96 justify-center z-10">
         {Array.from({ length: totalBlocks }).map((_, i) => (
           <div
             key={i}
-            className={`h-3 sm:h-4 md:h-6 w-[3%] flex-grow rounded-sm transition-all duration-300 ${
+            className={`h-6 w-full rounded-sm transition-all duration-300 ${
               i < activeBlocks
                 ? "bg-cust-red shadow-[0_0_6px_#f00a] animate-pulse"
                 : "bg-cust-light-dark"
@@ -152,17 +152,17 @@ export default function Loader({ onComplete }) {
       </div>
 
       {/* Progress % */}
-      <span className="text-xs sm:text-sm text-cust-red tracking-widest z-10">
+      <span className="text-sm text-cust-red tracking-widest z-10">
         {progress}%
       </span>
 
       {/* Status Dialogue */}
-      <p className="text-xs sm:text-sm text-cust-light mt-2 z-10 tracking-wide opacity-80 text-center px-4 min-h-[1.2em]">
+      <p className="text-sm text-cust-light mt-2 z-10 tracking-wide opacity-80 min-h-[1em]">
         {getStatusMessage()}
       </p>
 
       {/* Controls */}
-      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 z-10 items-center justify-center text-center px-4">
+      <div className="flex gap-4 mt-6 z-10">
         <button
           onClick={() => {
             setMuted(!muted);
