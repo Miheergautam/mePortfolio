@@ -41,23 +41,32 @@ export default function MainLayout() {
   useTrackSectionView("footer", "Footer");
 
   return (
-    <div className="flex flex-col font-clash-display min-h-screen bg-neutral-900">
+    <div className="flex flex-col font-clash-display min-h-screen bg-neutral-900 text-cust-light scroll-smooth overflow-x-hidden">
+      {/* Top Navigation Bar */}
       <TopBar />
-      <section id="hero">
-        <HeroSection />
-      </section>
-      <section id="services">
-        <Services />
-      </section>
-      <section id="work">
-        <WorkSection />
-      </section>
-      <section id="contact">
-        <Contact />
-      </section>
-      <section id="footer">
-        <Footer />
-      </section>
+
+      {/* Responsive Sections */}
+      <main className="flex-1 w-full max-w-[1600px] mx-auto px-4 sm:px-6 md:px-10">
+        <section id="hero" className="py-12 sm:py-16 md:py-24">
+          <HeroSection />
+        </section>
+
+        <section id="services" className="py-12 sm:py-16 md:py-24">
+          <Services />
+        </section>
+
+        <section id="work" className="py-12 sm:py-16 md:py-24">
+          <WorkSection />
+        </section>
+
+        <section id="contact" className="py-12 sm:py-16 md:py-24">
+          <Contact />
+        </section>
+
+        <section id="footer" className="pt-12 sm:pt-16 md:pt-20 pb-4">
+          <Footer />
+        </section>
+      </main>
     </div>
   );
 }

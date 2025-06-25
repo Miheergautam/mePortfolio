@@ -176,7 +176,7 @@ export default function HeroSection() {
                 YEARS OF EXPERIENCE
               </h2>
               <div className="text-4xl md:text-6xl text-neutral-400">
-                <span className="text-cust-red">2</span>+
+                <span className="text-cust-red">1</span>+
               </div>
             </section>
           </div>
@@ -188,9 +188,9 @@ export default function HeroSection() {
           onClick={handleCVDownload}
           target="_blank"
           rel="noopener noreferrer"
-          className="border border-neutral-300 text-white hover:text-white py-2 px-8 rounded-2xl text-lg md:text-xl font-semibold mt-4 cursor-pointer bg-neutral-900 hover:bg-cust-red transition duration-200"
+          className="border border-neutral-400 text-cust-red hover:text-black py-2 px-8 rounded-2xl text-lg md:text-xl font-semibold mt-4 cursor-pointer bg-neutral-900 hover:bg-cust-red transition duration-200"
         >
-          <span className="text-cust-red">.</span> Download CV
+          <span className=""><span className="text-white">. </span>Download CV</span>
         </a>
       </div>
     </section>
