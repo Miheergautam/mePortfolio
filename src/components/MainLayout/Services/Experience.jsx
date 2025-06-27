@@ -31,7 +31,8 @@ export default function Experience() {
   ];
 
   const renderExperienceBlock = (exp, index) => (
-    <div key={index} className="px-4 py-6 flex flex-col gap-1 text-neutral-300 bg-neutral-800 rounded-2xl">
+    <div key={index} className="px-4 py-6 flex flex-col gap-1 text-neutral-300 bg-neutral-800 rounded-2xl hover:scale-[1.02] transition-transform duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)]
+">
       {/* Company Name & Location */}
       <div className="flex flex-col md:flex-row justify-between md:items-center gap-1 md:gap-4">
         <h2 className="text-lg md:text-2xl font-semibold text-white">{exp.company}</h2>
