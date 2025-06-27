@@ -100,18 +100,19 @@ export default function HeroSection() {
                     onClick={() => handleSocialClick("LinkedIn")}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-2xl md:text-3xl hover:text-cust-red"
+                    className="inline-block text-2xl md:text-3xl text-cust-white hover:text-cust-red transition-transform ease-out duration-300 hover:scale-125"
                   >
                     <FaLinkedin />
                   </a>
                 </li>
+
                 <li>
                   <a
                     href="https://github.com/Miheergautam"
                     onClick={() => handleSocialClick("GitHub")}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-2xl md:text-3xl hover:text-cust-red"
+                    className="inline-block text-2xl md:text-3xl text-cust-white hover:text-cust-red transition-transform ease-out duration-300 hover:scale-125"
                   >
                     <FaGithub />
                   </a>
@@ -122,7 +123,7 @@ export default function HeroSection() {
                     onClick={() => handleSocialClick("Discord")}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-2xl md:text-3xl hover:text-cust-red"
+                    className="inline-block text-2xl md:text-3xl text-cust-white hover:text-cust-red transition-transform ease-out duration-300 hover:scale-125"
                   >
                     <FaDiscord />
                   </a>
@@ -133,7 +134,7 @@ export default function HeroSection() {
                     onClick={() => handleSocialClick("Instagram")}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-2xl md:text-3xl hover:text-cust-red"
+                    className="inline-block text-2xl md:text-3xl text-cust-white hover:text-cust-red transition-transform ease-out duration-300 hover:scale-125"
                   >
                     <FaInstagram />
                   </a>
@@ -190,7 +191,9 @@ export default function HeroSection() {
           rel="noopener noreferrer"
           className="border border-neutral-400 text-cust-red hover:text-black py-2 px-8 rounded-2xl text-lg md:text-xl font-semibold mt-4 cursor-pointer bg-neutral-900 hover:bg-cust-red transition duration-200"
         >
-          <span className=""><span className="text-white">. </span>Download CV</span>
+          <span className="">
+            <span className="text-white">. </span>Download CV
+          </span>
         </a>
       </div>
     </section>
