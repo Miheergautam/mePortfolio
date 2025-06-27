@@ -1,8 +1,13 @@
 import React from "react";
 import { FaLinkedin, FaDiscord, FaInstagram, FaGithub } from "react-icons/fa";
-import { gtagEvent } from "../../utils/analytics"; // adjust if needed
+import { gtagEvent } from "../../utils/analytics";
+import Modal from "../Modal";
+import { useState } from "react";
+import TerminalQuiz from "../game/UpdatingMeQuiz";
 
 export default function HeroSection() {
+  const [showModal, setShowModal] = useState(false);
+
   const scrollToSection = (sectionId, label) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -152,14 +157,31 @@ export default function HeroSection() {
                 alt="Profile"
               />
             </div>
-            <div className="flex gap-1 text-sm md:text-base border border-neutral-700 px-2 py-1 rounded-lg">
+            <button
+              onClick={() => setShowModal(true)}
+              className="flex items-center gap-1 text-sm md:text-base border border-neutral-700 px-2 py-1 rounded-lg transition-colors hover:bg-neutral-800"
+            >
               <span>{"<"}</span>
               <span className="font-semibold">
                 <span className="text-cust-red">@ </span>updating_me_
               </span>
               <span>{"/>"}</span>
-            </div>
+            </button>
           </div>
+
+          {/* Modal component */}
+          <Modal
+            isOpen={showModal}
+            onClose={() => setShowModal(false)}
+            title="Updating Me Quiz"
+          >
+            <TerminalQuiz
+              onComplete={(answers) => {
+                console.log("Collected answers: ", answers);
+                // store to DB if needed, with user permission
+              }}
+            />
+          </Modal>
 
           {/* Stats Right */}
           <div className="hidden md:flex flex-col justify-center text-end gap-6 mr-0 md:mr-6">
