@@ -66,8 +66,8 @@ export default function Loader({ onComplete }) {
           }
           return prev + 1;
         });
-      }, 300);
-    }, 500);
+      }, 200);
+    }, 400);
 
     return () => {
       clearInterval(intervalRef.current);
@@ -183,7 +183,7 @@ export default function Loader({ onComplete }) {
           <option value="minimal">Minimal</option>
         </select>
 
-        <button
+        {/* <button
           onClick={() => {
             clearInterval(intervalRef.current);
             if (activeSound) activeSound.stop();
@@ -193,7 +193,7 @@ export default function Loader({ onComplete }) {
           className="text-xs text-cust-light opacity-30 hover:opacity-80 transition"
         >
           Skip ⏭
-        </button>
+        </button> */}
       </div>
     </div>
   );

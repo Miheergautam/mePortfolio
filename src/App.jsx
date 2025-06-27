@@ -45,12 +45,18 @@ function AppRoutes() {
 }
 
 function App() {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(() => {
+    return sessionStorage.getItem("hasLoaded") === "true";  });
 
   return (
     <>
       {!isLoaded ? (
-        <Loader onComplete={() => setIsLoaded(true)} />
+        <Loader
+        onComplete={() => {
+          sessionStorage.setItem("hasLoaded", "true");
+          setIsLoaded(true);
+        }}
+      />
       ) : (
         <Router basename="/mePortfolio/">
           <AppRoutes />
