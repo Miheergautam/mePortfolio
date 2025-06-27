@@ -183,15 +183,14 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Download CV */}
         <a
           href="assets/MiheerResume.pdf"
           onClick={handleCVDownload}
           target="_blank"
           rel="noopener noreferrer"
-          className="border border-neutral-400 text-cust-red hover:text-black py-2 px-8 rounded-2xl text-lg md:text-xl font-semibold mt-4 cursor-pointer bg-neutral-900 hover:bg-cust-red transition duration-200"
+          className="inline-block border border-neutral-400 text-cust-red hover:text-black py-2 px-8 rounded-2xl text-lg md:text-xl font-semibold mt-4 cursor-pointer bg-neutral-900 hover:bg-cust-red transition-transform ease-out duration-300 hover:scale-110"
         >
-          <span className="">
+          <span>
             <span className="text-white">. </span>Download CV
           </span>
         </a>
