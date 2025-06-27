@@ -1,7 +1,20 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { useEffect } from "react";
 
 export default function EducationModal({ selected, onClose }) {
+
+  useEffect(() => {
+    if (selected) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selected]);
+
   if (!selected) return null;
 
   return (
@@ -16,7 +29,7 @@ export default function EducationModal({ selected, onClose }) {
       >
         <motion.div
           layoutId={`card-${selected.institute}`}
-          className="relative bg-neutral-900 rounded-2xl overflow-hidden text-neutral-200 w-[90%] max-w-3xl shadow-2xl max-h-[90vh] overflow-y-auto"
+          className="relative bg-neutral-900 rounded-2xl overflow-hidden text-neutral-200 w-[90%] max-w-4xl shadow-2xl max-h-[90vh] overflow-y-auto"
           onClick={(e) => e.stopPropagation()}
         >
           {/* close button */}

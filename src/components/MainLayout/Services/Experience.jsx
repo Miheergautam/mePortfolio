@@ -1,59 +1,95 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
+import ExperienceModal from "../../Modals/ExperienceModal";
+
 export default function Experience() {
   const experienceData = [
-    {
+    /*     {
       company: "TENDER BHARAT",
       location: "Delhi, India",
       role: "Software Developer Intern",
       duration: "June 2025 - Present",
-      tech: "MongoDB, Python, fastAPI, AI Tools, React, Typescript, TailwindCSS"
-    },
+      tech: "MongoDB, Python, fastAPI, AI Tools, ReactJS, Typescript, TailwindCSS, Javascript",
+      responsibilities: [
+        "Builing scalable REST APIs with FastAPI",
+        "Integrated AI tools for text summarization",
+        "Developed reusable React components"
+      ],
+      summary: "Worked on an AI-driven tender management platform with a modern stack."
+    }, */
     {
       company: "HEALTHLETIC LIFESTYLE",
       location: "Bengaluru, India",
       role: "Backend Developer Intern",
       duration: "April 2025 - June 2025",
-      tech: "MongoDB, ExpressJS, NodeJS, Javascript, Typescript",
+      tech: "MongoDB, Express, Node.js, JavaScript, TypeScript",
+      responsibilities: [
+        "Designed and implemented scalable REST APIs",
+        "Developed and maintained key features for the mobile backend",
+        "Conducted thorough code reviews and testing to ensure quality",
+      ],
+      summary:
+        "Worked as the secondary team lead in the mobile backend group, contributing to a scalable and efficient backend architecture for the Healthletic mobile application.",
     },
     {
-      company: "REINFORCE SOFTWARE SOLUTION PVT. LTD.",
+      company: "Reinforce Software Solution Pvt. Ltd.",
       location: "Indore, India",
-      role: "Full-Stack Developer Intern",
-      duration: "May 2024 - July 2024",
-      tech: "MongoDB, ExpressJS, ReactJS, NodeJS, TailwindCSS",
+      role: "Full Stack Developer Intern",
+      duration: "May 2024 - August 2024",
+      tech: "React.js, Tailwind CSS, Node.js, MongoDB",
+      responsibilities: [
+        "Redesigned the HR module for improved user experience.",
+        "Integrated scalable APIs for key features.",
+        "Implemented attendance tracking, profile management, and ticket systems.",
+      ],
+      summary:
+        "Worked on an HR workflow management system, developing and maintaining a fully functional web application with a seamless user experience from frontend to backend.",
     },
     {
-      company: "JK LAKSHMIPAT UNIVERSITY",
+      company: "JK Lakshmipat University",
       location: "Jaipur, India",
       role: "Undergraduate Teaching Assistant ~ Probability and Statistics",
       duration: "August 2024 - December 2024",
-      tech: "Pyhton Libraries, Pytorch, Matplotlib",
+      tech: "Python, NumPy, SciPy, Matplotlib, Sckit-learn",
+      responsibilities: [
+        "Assisted students with lab exercises and concepts.",
+        "Helped grade assignments and clarify topics.",
+        "Supported faculty in course-related tasks.",
+      ],
+      summary:
+        "Assisted in delivering coursework on probability and statistics, supporting students with problem-solving, statistical computing in Python, and data visualization techniques.",
     },
   ];
 
-  const renderExperienceBlock = (exp, index) => (
-    <div key={index} className="px-4 py-6 flex flex-col gap-1 text-neutral-300 bg-neutral-800 rounded-2xl hover:scale-[1.02] transition-transform duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)]
-">
-      {/* Company Name & Location */}
-      <div className="flex flex-col md:flex-row justify-between md:items-center gap-1 md:gap-4">
-        <h2 className="text-lg md:text-2xl font-semibold text-white">{exp.company}</h2>
-        <span className="text-sm md:text-base">{exp.location}</span>
-      </div>
-  
-      {/* Role & Duration */}
-      <div className="flex flex-col md:flex-row justify-between md:items-center gap-1 md:gap-4">
-        <span className="px-3 py-1/2 bg-neutral-700 text-md font-semibold text-cust-red rounded-2xl">{exp.role}</span>
-        <span className="text-sm md:text-base">{exp.duration}</span>
-      </div>
-  
-      {/* Tech Stack (if exists) */}
-      {exp.tech && (
-        <div className="text-sm italic leading-relaxed">
-          Tech Stack ~ <span className="text-cust-red font-semibold">{`< ${exp.tech} >`}</span>
+  const [selected, setSelected] = useState(null);
+
+  return (
+    <div className="p-2 flex flex-col gap-4">
+      {experienceData.map((exp, index) => (
+        <motion.div
+        key={index}
+        layoutId={`card-${exp.company}`}
+        onClick={() => setSelected(exp)}
+        whileHover={!selected ? { scale: 1.02 } : {}}
+        className="cursor-pointer px-4 py-6 flex flex-col gap-3 text-neutral-300 bg-neutral-800 rounded-2xl transition-transform duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)]"
+      >
+        <div className="flex flex-col md:flex-row justify-between md:items-center gap-1 md:gap-4">
+          <h2 className="text-lg md:text-2xl font-semibold text-white">{exp.company}</h2>
+          <span className="text-sm md:text-base text-neutral-400">{exp.location}</span>
         </div>
-      )}
+        <div className="flex flex-col md:flex-row justify-between md:items-center gap-1 md:gap-4">
+          <span className="px-3 py-1 bg-neutral-700 text-md font-semibold text-cust-red rounded-2xl">
+            {exp.role}
+          </span>
+          <span className="text-sm md:text-base text-neutral-400">{exp.duration}</span>
+        </div>
+        <div className="text-sm italic text-neutral-400">
+          Tech: <span className="text-cust-red">{exp.tech}</span>
+        </div>
+      </motion.div>
+      
+      ))}
+      <ExperienceModal selected={selected} onClose={() => setSelected(null)} />
     </div>
   );
-  
-
-  return <div className="p-2 flex flex-col gap-4">{experienceData.map(renderExperienceBlock)}</div>;
 }

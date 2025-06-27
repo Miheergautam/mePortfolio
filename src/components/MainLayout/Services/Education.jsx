@@ -54,6 +54,7 @@ export default function Education() {
           key={index}
           layoutId={`card-${edu.institute}`}
           onClick={() => setSelected(edu)}
+          whileHover={!selected ? { scale: 1.02 } : {}}
           className="cursor-pointer px-4 py-6 flex flex-col md:flex-row gap-4 items-center justify-between bg-neutral-800 rounded-2xl hover:scale-[1.02] transition-transform duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)]"
         >
           <div className="w-24 h-24 bg-white p-2 flex items-center justify-center rounded-full overflow-hidden">
