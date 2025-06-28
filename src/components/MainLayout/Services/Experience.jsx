@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import ExperienceModal from "../../Modals/ExperienceModal";
+import { BsThreeDots } from "react-icons/bs";
 
 export default function Experience() {
   const experienceData = [
@@ -67,27 +68,36 @@ export default function Experience() {
     <div className="p-2 flex flex-col gap-4">
       {experienceData.map((exp, index) => (
         <motion.div
-        key={index}
-        layoutId={`card-${exp.company}`}
-        onClick={() => setSelected(exp)}
-        whileHover={!selected ? { scale: 1.02 } : {}}
-        className="cursor-pointer px-4 py-6 flex flex-col gap-3 text-neutral-300 bg-neutral-800 rounded-2xl transition-transform duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)]"
-      >
-        <div className="flex flex-col md:flex-row justify-between md:items-center gap-1 md:gap-4">
-          <h2 className="text-lg md:text-2xl font-semibold text-white">{exp.company}</h2>
-          <span className="text-sm md:text-base text-neutral-400">{exp.location}</span>
-        </div>
-        <div className="flex flex-col md:flex-row justify-between md:items-center gap-1 md:gap-4">
-          <span className="px-3 py-1 bg-neutral-700 text-md font-semibold text-cust-red rounded-2xl">
-            {exp.role}
-          </span>
-          <span className="text-sm md:text-base text-neutral-400">{exp.duration}</span>
-        </div>
-        <div className="text-sm italic text-neutral-400">
-          Tech: <span className="text-cust-red">{exp.tech}</span>
-        </div>
-      </motion.div>
-      
+          key={index}
+          layoutId={`card-${exp.company}`}
+          onClick={() => setSelected(exp)}
+          whileHover={!selected ? { scale: 1.02 } : {}}
+          className="relative cursor-pointer px-4 py-6 flex flex-col gap-3 text-neutral-300 bg-neutral-800 hover:bg-neutral-800/60 rounded-2xl transition-transform duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)]"
+        >
+          <div className="flex flex-col md:flex-row justify-between md:items-center gap-1 md:gap-4">
+            <h2 className="text-lg md:text-2xl font-semibold text-white">
+              {exp.company}
+            </h2>
+            <span className="text-sm md:text-base">
+              {exp.location}
+            </span>
+          </div>
+          <div className="flex flex-col md:flex-row justify-between md:items-center gap-1 md:gap-4">
+            <span className="px-3 py-1 bg-neutral-700 text-md font-semibold text-cust-red rounded-2xl">
+              {exp.role}
+            </span>
+            <span className="text-sm md:text-base">
+              {exp.duration}
+            </span>
+          </div>
+          <div className="text-sm ">
+            Tech: <span className="text-cust-red italic">{exp.tech}</span>
+          </div>
+          {/* absolutely positioned symbol */}
+          <div className="absolute bottom-5 right-5 text-cust-red text-xl md:text-xl">
+            <BsThreeDots />
+          </div>
+        </motion.div>
       ))}
       <ExperienceModal selected={selected} onClose={() => setSelected(null)} />
     </div>
