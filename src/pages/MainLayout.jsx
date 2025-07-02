@@ -62,6 +62,20 @@ export default function MainLayout() {
         <section id="contact" className="py-12 sm:py-16 md:py-24">
           <Contact />
         </section>
+        <section
+          id="music"
+          className="py-12 sm:py-16 md:py-24 flex justify-center"
+        >
+          <iframe
+            style={{ borderRadius: "12px" }}
+            src="https://open.spotify.com/embed/playlist/YOUR_PLAYLIST_ID?utm_source=generator"
+            width="100%"
+            height="152"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            className="max-w-xl"
+          ></iframe>
+        </section>
 
         <section id="footer" className="pt-12 sm:pt-16 md:pt-20 pb-4">
           <Footer />

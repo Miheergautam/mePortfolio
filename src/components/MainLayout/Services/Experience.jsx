@@ -5,19 +5,19 @@ import { BsThreeDots } from "react-icons/bs";
 
 export default function Experience() {
   const experienceData = [
-    /*     {
+    {
       company: "TENDER BHARAT",
       location: "Delhi, India",
       role: "Software Developer Intern",
       duration: "June 2025 - Present",
-      tech: "MongoDB, Python, fastAPI, AI Tools, ReactJS, Typescript, TailwindCSS, Javascript",
+      tech: "MongoDB, Python, FastAPI, AI tools, ReactJS, TypeScript, Tailwind CSS",
       responsibilities: [
-        "Builing scalable REST APIs with FastAPI",
-        "Integrated AI tools for text summarization",
-        "Developed reusable React components"
+        "Building scalable REST APIs using FastAPI",
+        "Integrating AI tools for advanced tender analysis",
+        "Developing a user-friendly interface for Tender Bharat"
       ],
-      summary: "Worked on an AI-driven tender management platform with a modern stack."
-    }, */
+      summary: "Contributing to a modern, scalable tech stack to deliver a seamless and intuitive user experience for Tender Bharat."
+    },    
     {
       company: "HEALTHLETIC LIFESTYLE",
       location: "Bengaluru, India",
