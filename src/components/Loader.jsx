@@ -183,17 +183,19 @@ export default function Loader({ onComplete }) {
           <option value="minimal">Minimal</option>
         </select>
 
-        {/* <button
-          onClick={() => {
-            clearInterval(intervalRef.current);
-            if (activeSound) activeSound.stop();
-            gtagEvent("loader_skipped");
-            onComplete();
-          }}
-          className="text-xs text-cust-light opacity-30 hover:opacity-80 transition"
-        >
-          Skip ⏭
-        </button> */}
+        {progress >= 30 && (
+          <button
+            onClick={() => {
+              clearInterval(intervalRef.current);
+              if (activeSound) activeSound.stop();
+              gtagEvent("loader_skipped");
+              onComplete();
+            }}
+            className="text-xs text-cust-light opacity-30 hover:opacity-80 transition"
+          >
+            Skip ⏭
+          </button>
+        )}
       </div>
     </div>
   );

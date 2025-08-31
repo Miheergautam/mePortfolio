@@ -62,7 +62,7 @@ export default function MainLayout() {
         <section id="contact" className="py-12 sm:py-16 md:py-24">
           <Contact />
         </section>
-        <section
+        {/* <section
           id="music"
           className="py-12 sm:py-16 md:py-24 flex justify-center"
         >
@@ -75,7 +75,7 @@ export default function MainLayout() {
             loading="lazy"
             className="max-w-xl"
           ></iframe>
-        </section>
+        </section> */}
 
         <section id="footer" className="pt-12 sm:pt-16 md:pt-20 pb-4">
           <Footer />
