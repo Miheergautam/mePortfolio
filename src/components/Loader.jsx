@@ -114,20 +114,42 @@ export default function Loader({ onComplete }) {
 
       {/* Cinematic Intro */}
       {!hasStarted && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black z-20 duration-700">
-          <button
-            onClick={() => {
-              startSound(theme);
-              setHasStarted(true);
-              gtagEvent("launch_started", { theme });
-            }}
-            className="px-10 py-4 md:px-12 md:py-5 rounded-2xl text-cust-red font-bold md:text-2xl tracking-widest 
-             border border-cust-red bg-white/5 backdrop-blur-md 
-             shadow-[0_4px_20px_rgba(255,0,0,0.2)] hover:shadow-[0_0_40px_rgba(255,0,0,0.5)]
-             transition-all duration-300 hover:bg-cust-red hover:text-black"
-          >
-            BEGIN THE LAUNCH
-          </button>
+        <div className="absolute inset-0 z-20 flex items-center justify-center bg-black overflow-hidden">
+      
+          {/* Background Animation Layer */}
+          <div className="absolute inset-0 opacity-40">
+            {/* <AnimatedBackground />*/}
+          </div>
+      
+          {/* Content */}
+          <div className="relative flex flex-col items-center text-center px-6 space-y-8">
+            <h1 className="text-white text-3xl md:text-6xl font-bold tracking-wide">
+              .<span className="text-cust-red">mePortfolio</span>
+            </h1>
+      
+            <p className="text-gray-400 text-sm md:text-lg max-w-5xl">
+              A portfolio of ideas, experiments, and creations.  
+              Step inside and explore the projects, research, and stories behind them.
+            </p>
+      
+            <button
+              onClick={() => {
+                startSound(theme);
+                setHasStarted(true);
+                gtagEvent("launch_started", { theme });
+              }}
+              className="px-10 py-4 md:px-12 md:py-5 rounded-2xl 
+              text-cust-red font-bold text-xl md:text-3xl tracking-widest 
+              bg-white/10 backdrop-blur-md border border-white/10
+              transition-all duration-300
+              hover:bg-cust-red hover:text-black hover:scale-105"
+            >
+              START EXPLORING
+            </button>
+            <p className="text-gray-500 text-xs md:text-sm max-w-md">
+              Disclaimer: Explore responsibly :)
+            </p>
+          </div>
         </div>
       )}
 

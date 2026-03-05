@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+
+//UI components
+import SplashCursor from "./components/UI/SplashCursor";
 
 // Pages
 import MainLayout from "./pages/MainLayout";
@@ -14,10 +12,10 @@ import Blogs from "./pages/Blogs/Blogs";
 // Loader
 import Loader from "./components/Loader";
 
-// GA4 Utility (assuming it’s created in utils/analytics.js)
+// GA4 Utility
 import { gtagEvent } from "./utils/analytics";
 
-// ----------- Pageview Tracker Component ------------
+// Pageview Tracker Component 
 const PageViewTracker = () => {
   const location = useLocation();
 
@@ -29,7 +27,6 @@ const PageViewTracker = () => {
 
   return null;
 };
-// ---------------------------------------------------
 
 function AppRoutes() {
   return (
@@ -50,15 +47,18 @@ function App() {
 
   return (
     <>
-      {!isLoaded ? (
+      {!isLoaded ? (<>
+        <SplashCursor/>
         <Loader
         onComplete={() => {
           sessionStorage.setItem("hasLoaded", "true");
           setIsLoaded(true);
         }}
       />
-      ) : (
+      </>) : (
         <Router basename="/mePortfolio/">
+          {/* Cursor Effect */}
+          <SplashCursor/>
           <AppRoutes />
         </Router>
       )}

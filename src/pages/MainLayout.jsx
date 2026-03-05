@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
+import { gtagEvent } from "../utils/analytics";
 
+// Components
 import HeroSection from "../components/MainLayout/HeroSection";
 import Services from "../components/MainLayout/Services/Services";
 import WorkSection from "../components/MainLayout/WorkSection/WorkSection";
 import Contact from "../components/MainLayout/Contact/Contact";
 import Footer from "../components/MainLayout/Footer/Footer";
 import TopBar from "../components/MainLayout/TopBar/TopBar";
-
-import { gtagEvent } from "../utils/analytics";
 
 // Utility to observe when sections enter view
 const useTrackSectionView = (id, label) => {
