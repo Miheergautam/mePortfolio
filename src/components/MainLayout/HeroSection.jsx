@@ -185,19 +185,19 @@ export default function HeroSection() {
               >
           
                 {/* Front Image */}
-                <div className="absolute w-full h-full backface-hidden border-4 border-neutral-400 rounded-full overflow-hidden">
+                <div className="absolute w-full h-full backface-hidden border-4 border-neutral-400 hover:border-4 hover:border-cust-red rounded-full overflow-hidden">
                   <img
                     className="object-cover w-full h-full"
-                    src="assets/my.png"
+                    src="assets/IMG_5342.jpeg"
                     alt="Profile"
                   />
                 </div>
           
                 {/* Back Image */}
-                <div className="absolute w-full h-full rotate-y-180 backface-hidden border-4 border-neutral-400 hover:border-4 hover:border-cust-red rounded-full overflow-hidden">
+                <div className="absolute w-full h-full rotate-y-180 backface-hidden border-4 border-neutral-400 rounded-full overflow-hidden">
                   <img
                     className="object-cover w-full h-full"
-                    src="assets/IMG_5342.jpeg"
+                    src="assets/my.png"
                     alt="Profile 2"
                   />
                 </div>
