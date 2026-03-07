@@ -6,23 +6,23 @@ import { BsThreeDots } from "react-icons/bs";
 export default function Experience() {
   const experienceData = [
     {
-      company: "TENDER BHARAT",
+      company: "Bidovate Technologies PVT. LTD.",
       location: "Delhi, India",
       role: "Software Developer Intern",
-      duration: "June 2025 - Present",
+      duration: "June 2025 - Nov 2025",
       tech: "MongoDB, Python, FastAPI, AI tools, ReactJS, TypeScript, Tailwind CSS",
       responsibilities: [
         "Building scalable REST APIs using FastAPI",
         "Integrating AI tools for advanced tender analysis",
         "Developing a user-friendly interface for Tender Bharat"
       ],
-      summary: "Contributing to a modern, scalable tech stack to deliver a seamless and intuitive user experience for Tender Bharat."
+      summary: "Contributed to a modern, scalable tech stack to deliver a seamless and intuitive user experience for Tender Bharat."
     },    
     {
-      company: "HEALTHLETIC LIFESTYLE",
+      company: "Healthletic Lifestyle",
       location: "Bengaluru, India",
       role: "Backend Developer Intern",
-      duration: "April 2025 - June 2025",
+      duration: "April 2025 - May 2025",
       tech: "MongoDB, Express, Node.js, JavaScript, TypeScript",
       responsibilities: [
         "Designed and implemented scalable REST APIs",
@@ -36,7 +36,7 @@ export default function Experience() {
       company: "Reinforce Software Solution Pvt. Ltd.",
       location: "Indore, India",
       role: "Full Stack Developer Intern",
-      duration: "May 2024 - August 2024",
+      duration: "May 2024 - July 2024",
       tech: "React.js, Tailwind CSS, Node.js, MongoDB",
       responsibilities: [
         "Redesigned the HR module for improved user experience.",
@@ -49,16 +49,16 @@ export default function Experience() {
     {
       company: "JK Lakshmipat University",
       location: "Jaipur, India",
-      role: "Undergraduate Teaching Assistant ~ Probability and Statistics",
-      duration: "August 2024 - December 2024",
-      tech: "Python, NumPy, SciPy, Matplotlib, Sckit-learn",
+      role: "Undergraduate Teaching Assistant ~ { Probability and Statistics & Data Structures and Algorithm }",
+      duration: "August 2024 - December 2025",
+      tech: "Python, NumPy, SciPy, Matplotlib, Sckit-learn, C, Algorithms",
       responsibilities: [
         "Assisted students with lab exercises and concepts.",
         "Helped grade assignments and clarify topics.",
         "Supported faculty in course-related tasks.",
       ],
       summary:
-        "Assisted in delivering coursework on probability and statistics, supporting students with problem-solving, statistical computing in Python, and data visualization techniques.",
+        "Assisted in delivering coursework on probability & statistics and Data Structures and Algorithm, supporting students with problem-solving, statistical computing in Python, and data visualization techniques.",
     },
   ];
 

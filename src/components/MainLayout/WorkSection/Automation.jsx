@@ -5,15 +5,9 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 const videoProjects = [
   {
     title: "Scrapper-Tool",
-    description: "Collects the data from Different Sites",
+    description: "Collects the data from 30+ Different sources",
     image: "assets/scrapper.jpg",
     liveLink: "https://example.com/travel-video",
-  },
-  {
-    title: "Short Trip",
-    description: "Capturing the essence of short trips",
-    image: "https://i.pinimg.com/474x/99/ff/2e/99ff2e1805d1b51b58a48dd435e62b17.jpg",
-    liveLink: "https://example.com/short-trip-video",
   },
 ];
 

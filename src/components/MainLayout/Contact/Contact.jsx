@@ -114,9 +114,23 @@ export default function Contact() {
               <span>together!</span>
             </div>
             <div className="flex justify-center">
-              <span className="border-2 border-neutral-400 px-4 py-1 rounded-2xl text-cust-red text-lg md:text-xl font-semibold">
-                <span className="text-neutral-400">.</span> Let's Connect{" "}
-                <span className="text-neutral-400">!</span>
+              <span className="group border border-neutral-500 px-5 py-1.5 rounded-full text-cust-red text-lg md:text-xl font-semibold tracking-wide flex items-center overflow-hidden cursor-pointer">
+                <span className="text-neutral-400">.</span>
+                <span className="ml-1">Let's Connect</span>
+                <span
+                  className="
+                  flex items-center
+                  max-w-0 opacity-0 ml-0
+                  group-hover:max-w-[120px]
+                  group-hover:opacity-100
+                  group-hover:ml-2
+                  transition-all duration-700 ease-out
+                  overflow-hidden whitespace-nowrap
+                  "
+                >
+                  <span className="text-neutral-500 mr-1">|</span>
+                  <span className="text-neutral-400">And Build</span>
+                </span>
               </span>
             </div>
           </section>

@@ -6,24 +6,23 @@ export default function AboutMe() {
         <div className="text-base md:text-lg leading-relaxed max-w-2xl">
           <p>
             I’m an aspiring{" "}
-            <span className="text-cust-red font-semibold">software developer</span>{" "}
-            with a strong interest in Web technologies. I enjoy building
+            <span className="text-cust-red font-semibold">software developer / Builder</span>{" "}
+            with a strong interest in technologies and Ideas. I enjoy building
             user-friendly, end-to-end applications and solving technical
             challenges, constantly seeking opportunities to grow and refine my
             skills.
           </p>
           <p className="mt-4">
-            Beyond coding, I’m passionate about{" "}
+            Beyond tech, I’m passionate about{" "}
             <span className="text-blue-400 font-semibold">music</span>,{" "}
             <span className="text-blue-400 font-semibold">sports</span>, and{" "}
-            <span className="text-blue-400 font-semibold">video & photo editing</span>, 
+            <span className="text-blue-400 font-semibold">Photo & Videography</span>, 
             which fuel my creativity and teamwork. Traveling expands my
-            horizons, while my commitment to academics drives my passion for
-            continuous learning.
+            horizons, while my commitment to academics drives me reward.
           </p>
           <p className="mt-4">
-            These diverse experiences help me stay balanced, adaptable, and
-            ready to embrace new challenges.
+            These diverse experiences is what makes me stay balanced, adaptable, and
+            ready to embrace EVERYTHING.
           </p>
         </div>
 

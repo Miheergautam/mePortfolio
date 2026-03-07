@@ -7,19 +7,25 @@ const projects = [
     title: ".meBlogs",
     description: "Online Publishing Application",
     image: "assets/meblogs.png",
-    liveLink: "https://meblogs-demo.com",
+    liveLink: "https://meblogs-4.vercel.app/",
+  },
+  {
+    title: "ScholarMind",
+    description: "AI Powered Research AssistantPlatform",
+    image: "assets/scholarmind.jpeg",
+    liveLink: "https://github.com/Miheergautam/ScholarMind-2.0",
+  },
+  {
+    title: "Bid India",
+    description: "AI Powered Tender Searching Platform",
+    image: "assets/bid.png",
+    liveLink: "https://www.bidindia.co.in/",
   },
   {
     title: "FooDio",
     description: "Food Ordering Application",
     image: "assets/Web3.jpg",
     liveLink: "https://foodio-demo.com",
-  },
-  {
-    title: ".meConnect",
-    description: "Chat Application",
-    image: "assets/meconnect.png",
-    liveLink: "https://workwave-demo.com",
   },
   {
     title: "WorkWave",

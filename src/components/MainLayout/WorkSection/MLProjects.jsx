@@ -10,10 +10,10 @@ const mlProjects = [
     liveLink: "https://example.com/pacman",
   },
   {
-    title: "Scholar Mind",
-    description: "Research Assistent",
+    title: "GPT-X",
+    description: "Language Model trained on Hindi Dataset",
     image: "assets/Scholarmind.jpg",
-    liveLink: "https://example.com/chatbot",
+    liveLink: "https://github.com/Miheergautam/GPT-X",
   },
 ];
 
