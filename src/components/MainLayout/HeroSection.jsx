@@ -1,13 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaLinkedin, FaDiscord, FaInstagram, FaGithub } from "react-icons/fa";
 import { gtagEvent } from "../../utils/analytics";
 import Modal from "../Modal";
-import { useState } from "react";
 import TerminalQuiz from "../game/UpdatingMeQuiz";
+
+const roles = ["Engineer", "Student", "Builder"];
 
 export default function HeroSection() {
   const [showModal, setShowModal] = useState(false);
   const [flipped, setFlipped] = useState(false);
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayedRole, setDisplayedRole] = useState(roles[0]);
+  const [isDeletingRole, setIsDeletingRole] = useState(true);
+
+  useEffect(() => {
+    const currentRole = roles[roleIndex];
+    const nextRoleIndex = (roleIndex + 1) % roles.length;
+    const nextRole = roles[nextRoleIndex];
+    let timeoutDelay = isDeletingRole ? 45 : 75;
+
+    if (isDeletingRole && displayedRole === currentRole) {
+      timeoutDelay = 500;
+    }
+
+    if (!isDeletingRole && displayedRole === nextRole) {
+      timeoutDelay = 500;
+    }
+
+    const timeout = setTimeout(() => {
+      if (isDeletingRole) {
+        if (displayedRole.length > 0) {
+          setDisplayedRole((role) => role.slice(0, -1));
+        } else {
+          setIsDeletingRole(false);
+          setRoleIndex(nextRoleIndex);
+        }
+        return;
+      }
+
+      if (displayedRole.length < currentRole.length) {
+        setDisplayedRole(currentRole.slice(0, displayedRole.length + 1));
+      } else {
+        setIsDeletingRole(true);
+      }
+    }, timeoutDelay);
+
+    return () => clearTimeout(timeout);
+  }, [displayedRole, isDeletingRole, roleIndex]);
 
   const scrollToSection = (sectionId, label) => {
     const section = document.getElementById(sectionId);
@@ -60,8 +99,12 @@ export default function HeroSection() {
             </span>
           </h1>
         
-          <h2 className="mt-3 text-xl md:text-3xl font-semibold tracking-wider text-neutral-400">
-            ~ The Builder
+          <h2 className="mt-3 flex items-center justify-center gap-2 text-xl md:text-3xl font-semibold tracking-wider text-neutral-400">
+            <span>~ The</span>
+            <span className="inline-flex min-w-[8ch] justify-start text-cust-red drop-shadow-[0_0_18px_rgba(235,96,97,0.28)]">
+              {displayedRole}
+              <span className="ml-1 animate-pulse text-neutral-500">|</span>
+            </span>
           </h2>
         </div>
 

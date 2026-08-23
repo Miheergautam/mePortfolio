@@ -41,8 +41,8 @@ export default function MainLayout() {
   useTrackSectionView("footer", "Footer");
 
   return (
-    <div className="flex flex-col font-clash-display min-h-screen bg-neutral-900 text-cust-light scroll-smooth overflow-x-hidden">
-      {/* Top Navigation Bar */}
+    <div className="flex min-h-screen flex-col bg-neutral-900 pb-28 font-clash-display text-cust-light scroll-smooth overflow-x-hidden md:pb-32">
+      {/* Floating Navigation Dock */}
       <TopBar />
 
       {/* Responsive Sections */}

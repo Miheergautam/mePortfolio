@@ -1,55 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import useSound from "use-sound";
 import { gtagEvent } from "../utils/analytics";
 
-import futuristicSong from "../sounds/song1.mp3";
-import retroSong from "../sounds/song2.mp3";
-import minimalSong from "../sounds/song3.mp3";
-
-const themeSongs = {
-  futuristic: futuristicSong,
-  retro: retroSong,
-  minimal: minimalSong,
-};
-
-export default function Loader({ onComplete }) {
+export default function Loader({ onComplete, onLaunch }) {
   const [progress, setProgress] = useState(0);
-  const [muted, setMuted] = useState(false);
-  const [theme, setTheme] = useState("futuristic");
   const [hasStarted, setHasStarted] = useState(false);
   const intervalRef = useRef(null);
   const totalBlocks = 30;
-  const [activeSound, setActiveSound] = useState(null);
-
-  const [playFuturistic, { sound: futuristicSound }] = useSound(
-    futuristicSong,
-    { volume: 0.2, loop: true, soundEnabled: !muted }
-  );
-  const [playRetro, { sound: retroSound }] = useSound(retroSong, {
-    volume: 0.2,
-    loop: true,
-    soundEnabled: !muted,
-  });
-  const [playMinimal, { sound: minimalSound }] = useSound(minimalSong, {
-    volume: 0.2,
-    loop: true,
-    soundEnabled: !muted,
-  });
-
-  const soundMap = {
-    futuristic: { play: playFuturistic, instance: futuristicSound },
-    retro: { play: playRetro, instance: retroSound },
-    minimal: { play: playMinimal, instance: minimalSound },
-  };
-
-  const startSound = (themeName) => {
-    if (activeSound) activeSound.stop();
-    const selected = soundMap[themeName];
-    if (selected) {
-      selected.play();
-      setActiveSound(selected.instance);
-    }
-  };
+  const entryBg = `${import.meta.env.BASE_URL}assets/entry_bg.png`;
 
   useEffect(() => {
     if (!hasStarted) return;
@@ -59,7 +16,6 @@ export default function Loader({ onComplete }) {
         setProgress((prev) => {
           if (prev >= 100) {
             clearInterval(intervalRef.current);
-            if (activeSound) activeSound.stop();
             gtagEvent("launch_completed");
             setTimeout(onComplete, 1000);
             return 100;
@@ -72,22 +28,8 @@ export default function Loader({ onComplete }) {
     return () => {
       clearInterval(intervalRef.current);
       clearTimeout(timeout);
-      if (activeSound) activeSound.stop();
     };
   }, [hasStarted]);
-
-  useEffect(() => {
-    if (hasStarted) {
-      startSound(theme);
-      gtagEvent("theme_changed", { theme });
-    }
-  }, [theme, muted]);
-
-  useEffect(() => {
-    if (progress >= 100 && activeSound) {
-      activeSound.stop();
-    }
-  }, [progress]);
 
   const activeBlocks = Math.floor((progress / 100) * totalBlocks);
 
@@ -99,7 +41,7 @@ export default function Loader({ onComplete }) {
     "Rendering Cinematic Edits...",
     "Activating Visual Aesthetics...",
     "Running Final Checks...",
-    "Ready to Launch 🚀",
+    "Ready to Launch",
   ];
 
   const getStatusMessage = () => {
@@ -108,65 +50,80 @@ export default function Loader({ onComplete }) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-neutral-900 text-cust-light font-mono relative overflow-hidden gap-6">
+    <div
+      className="flex flex-col items-center justify-center h-screen bg-neutral-900 bg-cover bg-center text-cust-light font-mono relative overflow-hidden gap-6"
+      style={{ backgroundImage: `url(${entryBg})` }}
+    >
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-tr from-black via-neutral-900 to-black opacity-80" />
 
       {/* Cinematic Intro */}
       {!hasStarted && (
-        <div className="absolute inset-0 z-20 flex items-center justify-center bg-black overflow-hidden">
+        <div
+          className="absolute inset-0 z-20 flex items-center justify-center bg-black bg-cover bg-center overflow-hidden"
+          style={{ backgroundImage: `url(${entryBg})` }}
+        >
       
           {/* Background Animation Layer */}
           <div className="absolute inset-0 opacity-40">
             {/* <AnimatedBackground />*/}
           </div>
+          <div className="absolute inset-0 bg-black/55" />
       
           {/* Content */}
-          <div className="relative flex flex-col items-center text-center px-6 space-y-8">
-            <h1 className="text-white text-3xl md:text-6xl font-bold tracking-wide">
-              .<span className="text-cust-red">mePortfolio</span>
-            </h1>
-      
-            <p className="text-gray-400 text-sm md:text-lg max-w-5xl">
-              A portfolio of ideas, experiments, and creations.  
-              Step inside and explore the projects, research, and stories behind them.
-            </p>
-      
-            <button
-              onClick={() => {
-                startSound(theme);
-                setHasStarted(true);
-                gtagEvent("launch_started", { theme });
-              }}
-              className="px-10 py-4 md:px-12 md:py-5 rounded-2xl 
-              text-cust-red font-bold text-xl md:text-3xl tracking-widest 
-              bg-white/10 backdrop-blur-md border border-white/10
-              transition-all duration-300
-              hover:bg-cust-red hover:text-black hover:scale-105"
-            >
-              START EXPLORING
-            </button>
-            <p className="text-gray-500 text-xs md:text-sm max-w-md">
-              Disclaimer: Explore responsibly :)
+          <div className="relative flex min-h-screen w-full flex-col items-center justify-center px-6 text-center">
+            <div className="relative flex max-w-4xl flex-col items-center">
+              <h1 className="text-5xl font-semibold leading-none tracking-normal text-white md:text-8xl">
+                <span className="text-white/45">.</span>
+                <span className="text-cust-red">me</span>Portfolio
+              </h1>
+
+              <p className="mt-7 max-w-2xl text-base leading-7 text-neutral-300 md:text-xl md:leading-9">
+                A professional archive of things I have built, learned,
+                shipped, broken, fixed, and proudly documented.
+              </p>
+
+              <button
+                onClick={() => {
+                  setHasStarted(true);
+                  onLaunch?.();
+                  gtagEvent("launch_started");
+                }}
+                className="group mt-10 inline-flex items-center gap-4 rounded-full border border-cust-red/40 bg-cust-red px-8 py-3 text-sm font-bold uppercase tracking-[0.28em] text-black shadow-[0_0_40px_rgba(235,96,97,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_0_60px_rgba(255,255,255,0.18)] focus:outline-none focus:ring-2 focus:ring-cust-red/50 focus:ring-offset-2 focus:ring-offset-black md:px-10 md:py-4 md:text-base"
+              >
+                <span>Take The Tour</span>
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  &rarr;
+                </span>
+              </button>
+
+              <p className="mt-5 text-xs uppercase tracking-[0.28em] text-white/35 md:text-sm">
+                Some experiments may contain traces of caffeine.
+              </p>
+            </div>
+
+            <p className="absolute bottom-5 right-5 text-[0.6rem] font-semibold tracking-[0.3em] text-white/80 md:text-xs">
+              #credits: updating_me
             </p>
           </div>
         </div>
       )}
 
       {/* Title */}
-      <h1 className="text-3xl md:text-6xl font-bold tracking-widest text-cust-red animate-pulse relative z-10">
-        LAUNCHING <span className="text-white">.</span>mePORTFOLIO
+      <h1 className="relative z-10 text-center text-3xl font-semibold tracking-normal text-white md:text-6xl">
+        Launching <span className="text-white/45">.</span>
+        <span className="text-cust-red">me</span>Portfolio
       </h1>
 
       {/* Loader Blocks */}
-      <div className="flex gap-1 w-72 md:w-96 justify-center z-10">
+      <div className="z-10 flex w-72 justify-center gap-1 md:w-96">
         {Array.from({ length: totalBlocks }).map((_, i) => (
           <div
             key={i}
             className={`h-6 w-full rounded-sm transition-all duration-300 ${
               i < activeBlocks
-                ? "bg-cust-red shadow-[0_0_6px_#f00a] animate-pulse"
-                : "bg-cust-light-dark"
+                ? "bg-cust-red shadow-[0_0_8px_rgba(235,96,97,0.55)]"
+                : "bg-white/10"
             }`}
             style={{ transitionDelay: `${i * 20}ms` }}
           />
@@ -174,51 +131,27 @@ export default function Loader({ onComplete }) {
       </div>
 
       {/* Progress % */}
-      <span className="text-sm text-cust-red tracking-widest z-10">
+      <span className="z-10 text-sm font-semibold tracking-[0.35em] text-cust-red">
         {progress}%
       </span>
 
       {/* Status Dialogue */}
-      <p className="text-sm text-cust-light mt-2 z-10 tracking-wide opacity-80 min-h-[1em]">
+      <p className="z-10 mt-2 min-h-[1em] text-sm tracking-wide text-neutral-400">
         {getStatusMessage()}
       </p>
 
-      {/* Controls */}
-      <div className="flex gap-4 mt-6 z-10">
+      {progress >= 30 && (
         <button
           onClick={() => {
-            setMuted(!muted);
-            gtagEvent("mute_toggled", { muted: !muted });
+            clearInterval(intervalRef.current);
+            gtagEvent("loader_skipped");
+            onComplete();
           }}
-          className="text-xs text-cust-light opacity-50 hover:opacity-100 transition"
+          className="relative z-10 rounded-full border border-white/15 px-5 py-2 text-xs font-bold uppercase tracking-[0.22em] text-neutral-300 transition hover:border-cust-red/60 hover:text-white"
         >
-          {muted ? "🔇 Unmute" : "🔊 Mute"}
+          Skip
         </button>
-
-        <select
-          value={theme}
-          onChange={(e) => setTheme(e.target.value)}
-          className="bg-transparent border border-cust-red text-cust-light text-xs px-2 py-1 rounded-md"
-        >
-          <option value="futuristic">Energetic</option>
-          <option value="retro">90s Retro</option>
-          <option value="minimal">Minimal</option>
-        </select>
-
-        {progress >= 30 && (
-          <button
-            onClick={() => {
-              clearInterval(intervalRef.current);
-              if (activeSound) activeSound.stop();
-              gtagEvent("loader_skipped");
-              onComplete();
-            }}
-            className="text-xs text-cust-light opacity-30 hover:opacity-80 transition"
-          >
-            Skip ⏭
-          </button>
-        )}
-      </div>
+      )}
     </div>
   );
 }

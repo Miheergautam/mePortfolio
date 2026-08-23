@@ -1,5 +1,8 @@
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+const menuItemClass =
+  "group w-full rounded-lg px-4 py-2 text-center text-2xl font-bold tracking-normal text-neutral-200 transition-all duration-300 hover:bg-cust-red hover:text-black sm:text-right sm:text-3xl md:text-4xl";
 
 export default function MenuBar({ menuOpen, setMenuOpen }) {
   const navigate = useNavigate();
@@ -18,70 +21,70 @@ export default function MenuBar({ menuOpen, setMenuOpen }) {
   };
 
   return (
-    <div className="relative flex w-full justify-center max-w-7xl">
+    <div className="absolute inset-x-0 bottom-full mb-3 flex w-full justify-center">
       <div
-        className={`absolute flex flex-col sm:flex-row justify-between items-center sm:items-start gap-6 sm:gap-4 text-cust-light w-full border border-neutral-700 bg-neutral-900 rounded-xl mx-2 py-6 px-4 sm:py-6 sm:px-6 shadow-lg shadow-cust-red z-40
-        transition-all duration-300 ease-out max-w-6xl
+        className={`z-[60] mx-2 flex w-[calc(100%-1rem)] max-w-5xl flex-col items-center justify-between gap-6 rounded-2xl border border-white/10 bg-neutral-950/95 px-4 py-5 text-cust-light shadow-[0_24px_80px_rgba(0,0,0,0.5)] backdrop-blur-2xl transition-all duration-300 ease-out sm:flex-row sm:items-start sm:gap-8 sm:px-6 sm:py-6
         ${menuOpen 
           ? "opacity-100 translate-y-0 scale-100 pointer-events-auto" 
-          : "opacity-0 -translate-y-4 scale-95 pointer-events-none"
+          : "opacity-0 translate-y-4 scale-95 pointer-events-none"
         }`}
       > 
           {/* Profile image */}
-          <div className="flex flex-col items-center gap-2">
+          <div className="flex w-full max-w-xs flex-col items-center gap-3 sm:w-auto">
             <img
               src="assets/profilex.jpg"
               alt="Profile"
-              className="w-24 sm:w-32 md:w-64 object-cover rounded-lg"
+              className="aspect-[4/3] w-32 rounded-lg border border-white/10 object-cover shadow-[0_16px_44px_rgba(0,0,0,0.35)] sm:w-44 md:w-56"
             />
             <div className="flex items-center justify-center gap-3">
-              <div className="w-10 h-[1px] bg-cust-red/40"></div>
-              <p className="text-cust-red text-xs font-semibold tracking-[0.25em] uppercase">
+              <div className="h-px w-10 bg-cust-red/50"></div>
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cust-red">
                 Inspiration
               </p>
-              <div className="w-10 h-[1px] bg-cust-red/40"></div>
+              <div className="h-px w-10 bg-cust-red/50"></div>
             </div>
           </div>
 
           {/* Menu Items */}
-          <div className="flex flex-col items-center sm:items-end text-center sm:text-right w-full sm:w-auto">
-            <h1
+          <nav className="flex w-full flex-col items-stretch text-center sm:max-w-md sm:items-end sm:text-right">
+            <button
               onClick={() => handleNavigate("/")}
-              className="font-bold text-2xl sm:text-3xl md:text-4xl text-cust-red mb-2 cursor-pointer hover:bg-cust-red hover:text-black px-3 py-1 rounded transition cursor-pointer"
+              className={menuItemClass}
             >
               HOME
-            </h1>
+            </button>
 
-            <h1
+            <button
               onClick={() => scrollToSection("about")}
-              className="font-bold text-2xl sm:text-3xl md:text-4xl text-cust-red mb-2 cursor-pointer hover:bg-cust-red hover:text-black px-3 py-1 rounded transition cursor-pointer"
+              className={menuItemClass}
             >
               ABOUT
-            </h1>
+            </button>
 
-            <h1
+            <button
               onClick={() => scrollToSection("projects")}
-              className="font-bold text-2xl sm:text-3xl md:text-4xl text-cust-red mb-2 cursor-pointer hover:bg-cust-red hover:text-black px-3 py-1 rounded transition cursor-pointer"
+              className={menuItemClass}
             >
               PROJECTS
-            </h1>
+            </button>
 
-            <Link
-              to="https://meblogs-4.vercel.app/"
-              className="font-bold text-2xl sm:text-3xl md:text-4xl text-cust-red mb-2 cursor-pointer hover:bg-cust-red hover:text-black px-3 py-1 rounded transition cursor-pointer"
+            <a
+              href="https://meblogs-4.vercel.app/"
+              className={menuItemClass}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => setMenuOpen(false)}
             >
               .meBLOGS
-            </Link>
+            </a>
 
-            <h1
+            <button
               onClick={() => handleNavigate("/mytech")}
-              className="font-bold text-2xl sm:text-3xl md:text-4xl text-cust-red mb-2 cursor-pointer hover:bg-cust-red hover:text-black px-3 py-1 rounded transition cursor-pointer"
+              className={menuItemClass}
             >
               .meTECH
-            </h1>
-          </div>
+            </button>
+          </nav>
         </div>
     </div>
   );

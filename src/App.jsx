@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 
 //UI components
 import SplashCursor from "./components/UI/SplashCursor";
+import PlaylistIsland from "./components/PlaylistIsland";
 
 // Pages
 import MainLayout from "./pages/MainLayout";
@@ -43,25 +49,41 @@ function AppRoutes() {
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(() => {
-    return sessionStorage.getItem("hasLoaded") === "true";  });
+    return sessionStorage.getItem("hasLoaded") === "true";
+  });
+  const [isPlaylistVisible, setIsPlaylistVisible] = useState(() => {
+    return (
+      sessionStorage.getItem("playlistVisible") === "true" ||
+      sessionStorage.getItem("hasLoaded") === "true"
+    );
+  });
+
+  const showPlaylist = () => {
+    sessionStorage.setItem("playlistVisible", "true");
+    setIsPlaylistVisible(true);
+  };
 
   return (
     <>
-      {!isLoaded ? (<>
-        <SplashCursor/>
-        <Loader
-        onComplete={() => {
-          sessionStorage.setItem("hasLoaded", "true");
-          setIsLoaded(true);
-        }}
-      />
-      </>) : (
+      {!isLoaded ? (
+        <>
+          <SplashCursor />
+          <Loader
+            onLaunch={showPlaylist}
+            onComplete={() => {
+              sessionStorage.setItem("hasLoaded", "true");
+              setIsLoaded(true);
+            }}
+          />
+        </>
+      ) : (
         <Router basename="/mePortfolio/">
           {/* Cursor Effect */}
-          <SplashCursor/>
+          <SplashCursor />
           <AppRoutes />
         </Router>
       )}
+      <PlaylistIsland isVisible={isPlaylistVisible} />
     </>
   );
 }
