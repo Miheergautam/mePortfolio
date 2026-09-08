@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 
 export default function Contact() {
@@ -58,7 +58,7 @@ export default function Contact() {
       .send("service_apkttho", "template_qsmera9", {
         from_name: formData.name,
         from_email: formData.email,
-        message: formData.message,
+        message: `Freelance project inquiry:\n\n${formData.message}`,
       })
       .then(() => {
         alert("Message sent!");
@@ -98,7 +98,7 @@ export default function Contact() {
             </span>
           </div>
           <div className="flex justify-end text-neutral-400 items-center text-lg md:text-2xl">
-            <span className="font-medium">Or just say hello .</span>
+            <span className="font-medium">Freelance builds, collabs, or hello.</span>
           </div>
         </div>
       </div>
@@ -110,13 +110,13 @@ export default function Contact() {
           <section className="p-6 flex flex-col">
             <div className="flex flex-col justify-center items-center text-white p-4 gap-1 text-4xl md:text-5xl my-4">
               <span>Trying to</span>
-              <span>create</span>
+              <span>build</span>
               <span>together!</span>
             </div>
             <div className="flex justify-center">
               <span className="group border border-neutral-500 px-5 py-1.5 rounded-full text-cust-red text-lg md:text-xl font-semibold tracking-wide flex items-center overflow-hidden cursor-pointer">
                 <span className="text-neutral-400">.</span>
-                <span className="ml-1">Let's Connect</span>
+                <span className="ml-1">Hire Me</span>
                 <span
                   className="
                   flex items-center
@@ -129,7 +129,7 @@ export default function Contact() {
                   "
                 >
                   <span className="text-neutral-500 mr-1">|</span>
-                  <span className="text-neutral-400">And Build</span>
+                  <span className="text-neutral-400">Freelance</span>
                 </span>
               </span>
             </div>
@@ -148,6 +148,7 @@ export default function Contact() {
                     name="name"
                     type="text"
                     className="w-full bg-transparent border-b border-neutral-400 text-white p-2"
+                    placeholder="Your name or company"
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -162,6 +163,7 @@ export default function Contact() {
                     name="email"
                     type="email"
                     className="w-full bg-transparent border-b border-neutral-400 text-white p-2"
+                    placeholder="Where I should reply"
                     value={formData.email}
                     onChange={handleChange}
                     required
@@ -178,6 +180,7 @@ export default function Contact() {
                   name="message"
                   className="w-full bg-transparent border-b border-neutral-400 text-white p-2"
                   rows="4"
+                  placeholder="Tell me what you want to build, timeline, budget range, and the best way to contact you."
                   value={formData.message}
                   onChange={handleChange}
                   required
@@ -193,7 +196,7 @@ export default function Contact() {
                     : "bg-neutral-700 hover:bg-neutral-600"
                 }`}
               >
-                {isSending ? "Sending..." : "Let's Go!"}
+                {isSending ? "Sending..." : "Send Project Inquiry"}
               </button>
             </form>
           </section>

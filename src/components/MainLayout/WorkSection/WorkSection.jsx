@@ -2,14 +2,14 @@ import WorkTopBar from "../WorkSection/WorkTopBar";
 
 export default function WorkSection() {
   return (
-    <div id="projects" className="flex flex-col items-center gap-10 px-4 md:px-0 min-h-screen">
-      <div className="flex flex-col items-center justify-center text-cust-red w-full max-w-7xl font-bold text-xl my-20">
+    <div id="projects" className="flex flex-col items-center gap-8 min-h-screen">
+      <div className="flex flex-col items-center justify-center text-cust-red w-full max-w-7xl font-bold text-xl mt-20 mb-10">
         <h1 className="text-white text-5xl md:text-7xl font-semibold px-3 py-2 text-center">
           <span className="text-cust-red font-bold">What </span>I Do !
         </h1>
         <span className="group border border-neutral-500 px-5 py-1.5 rounded-full text-cust-red text-lg md:text-xl font-semibold tracking-wide flex items-center overflow-hidden cursor-pointer">
           <span className="text-neutral-400">.</span>
-          <span className="ml-1">Let's see</span>
+          <span className="ml-1">Let&apos;s see</span>
           <span
             className="
             flex items-center

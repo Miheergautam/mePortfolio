@@ -56,8 +56,11 @@ export default function HeroSection() {
     }
   };
 
-  const handleCVDownload = () => {
-    gtagEvent("cv_download", { file: "MiheerResume.pdf" });
+  const handleSectionKeyDown = (event, sectionId, label) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      scrollToSection(sectionId, label);
+    }
   };
 
   const handleSocialClick = (platform) => {
@@ -132,7 +135,12 @@ export default function HeroSection() {
           
                 <span
                   className="text-cust-red cursor-pointer text-sm font-medium hover:underline"
-                  onClick={() => scrollToSection("about", "About")}
+                  onClick={() => scrollToSection("services", "Who Am I")}
+                  onKeyDown={(event) =>
+                    handleSectionKeyDown(event, "services", "Who Am I")
+                  }
+                  role="button"
+                  tabIndex={0}
                 >
                   Explore more →
                 </span>
@@ -143,14 +151,17 @@ export default function HeroSection() {
             <section className="space-y-2 md:block hidden">
               <h2 className="text-xl md:text-2xl font-semibold">Skills</h2>
               <ul className="list-disc list-inside text-neutral-400 text-sm md:text-base">
-                <li>Full Stack Development</li>
+                <li>AI Native Full Stack Dev</li>
                 <li>AI Integration & Tools</li>
                 <li>Generative AI</li>
                 <li>Colaboration</li>
               </ul>
               <span>
                 <span
-                  onClick={() => scrollToSection("projects", "Projects")}
+                  onClick={() => scrollToSection("work", "What I Do")}
+                  onKeyDown={(event) =>
+                    handleSectionKeyDown(event, "work", "What I Do")
+                  }
                   className="text-cust-red cursor-pointer hover:underline"
                   role="button"
                   tabIndex={0}
@@ -312,25 +323,6 @@ export default function HeroSection() {
           
           </div>
         </div>
-
-        <a
-          href="assets/MiheerResume.pdf"
-          onClick={handleCVDownload}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group inline-flex items-center gap-2 
-          border border-neutral-700 
-          px-6 py-2.5 
-          rounded-xl 
-          text-base md:text-lg font-semibold 
-          bg-neutral-900 
-          text-neutral-200 
-          hover:bg-cust-red hover:text-black 
-          transition-all duration-300
-          cursor-pointer"
-        >
-          <span>Resume/CV</span>
-        </a>
       </div>
     </section>
   );

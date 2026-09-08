@@ -21,7 +21,7 @@ export default function MenuBar({ menuOpen, setMenuOpen }) {
   };
 
   return (
-    <div className="absolute inset-x-0 bottom-full mb-3 flex w-full justify-center">
+    <div className="pointer-events-none absolute inset-x-0 bottom-full mb-3 flex w-full justify-center">
       <div
         className={`z-[60] mx-2 flex w-[calc(100%-1rem)] max-w-5xl flex-col items-center justify-between gap-6 rounded-2xl border border-white/10 bg-neutral-950/95 px-4 py-5 text-cust-light shadow-[0_24px_80px_rgba(0,0,0,0.5)] backdrop-blur-2xl transition-all duration-300 ease-out sm:flex-row sm:items-start sm:gap-8 sm:px-6 sm:py-6
         ${menuOpen 
